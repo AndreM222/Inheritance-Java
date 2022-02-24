@@ -5,7 +5,6 @@ public class TeamLeader extends Employee {
     Scanner inputSC = new Scanner(System.in);
     private int workersCounter;
     
-    
     public void workerList(String group) {
         
         System.out.print("--------   Input Workers Amount: ");

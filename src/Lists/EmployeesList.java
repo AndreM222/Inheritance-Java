@@ -1,20 +1,21 @@
 package Lists;
 
 import java.util.Scanner;
-
 import Classes.ShiftSupervisor;
 
 public class EmployeesList {
-
-    Scanner inputSC = new Scanner(System.in);
-    private int supervisorsCount;
+  
+  Scanner inputSC = new Scanner(System.in);
+  private int supervisorsCount;
+  TerminalStart terminalRef = new TerminalStart();
+  
+  public void createEmployeesList() {
     
-    public EmployeesList() {
-        
-        System.out.print("Input Supervisors Amount: ");
-
-        supervisorsCount = Integer.parseInt(inputSC.nextLine());
-        Classes.ShiftSupervisor[] supervisorArr = new Classes.ShiftSupervisor[supervisorsCount];
+      System.out.print("Input Supervisors Amount: ");
+      
+      supervisorsCount = Integer.parseInt(inputSC.nextLine());
+      Classes.ShiftSupervisor[] supervisorArr = new Classes.ShiftSupervisor[supervisorsCount];
+      System.out.println(supervisorArr.length);
 
         for (int i = 0; i < supervisorArr.length; i++) {
 
@@ -45,6 +46,8 @@ public class EmployeesList {
             supervisorArr[i].leaderList();
 
         }
+
+        terminalRef.startTerminal();
 
     }
 

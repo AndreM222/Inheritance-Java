@@ -1,10 +1,13 @@
+import Lists.TerminalStart;
 
 public class EmployeeDemo{
 
     public static void main(String[] args){
 
-        Lists.EmployeesList listRunner = new Lists.EmployeesList();
+        Lists.TerminalStart listRunner = new Lists.TerminalStart();
         
+        listRunner.startTerminal();
+
     }
 
 }

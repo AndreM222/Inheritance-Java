@@ -15,3 +15,6 @@ ANSI escape code -> Is a sequence which can be interpeted as commands combined w
                  -> 033[2J cleans the whole screen
 
                  ->flush() flushes the content of the buffer to the output stream
+
+Static -> In the Java programming language, the keyword static means that the particular member belongs to a type itself, rather than to 
+          an instance of that type. This means we'll create only one instance of that static member that is shared across all instances of the class.

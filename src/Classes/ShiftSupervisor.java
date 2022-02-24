@@ -1,7 +1,7 @@
 package Classes;
 import java.util.Scanner;
 public class ShiftSupervisor extends Employee {
-    
+
     Scanner inputSC = new Scanner(System.in);
     private int leadersCounter;
     
@@ -12,10 +12,10 @@ public class ShiftSupervisor extends Employee {
         
         leadersCounter = Integer.parseInt(inputSC.nextLine()); 
         Classes.TeamLeader[] leaderArr = new Classes.TeamLeader[leadersCounter];
-
+        
         for (int i = 0; i < leaderArr.length; i++) {
-
-            leaderArr[i] = new TeamLeader();
+          
+          leaderArr[i] = new TeamLeader();
 
           //---------------------------------------Input--------------------------------------------------  
 
@@ -42,6 +42,8 @@ public class ShiftSupervisor extends Employee {
             leaderArr[i].workerList(group);
  
         }
+
+      
 
         for (int i = 0; i < leaderArr.length; i++) {
 
