@@ -5,20 +5,6 @@ public class Employee {
     private int idNumber = 231241;
     private String name = "Jerry";
     private String group = "Business";
-
-    /*------------- Driver -----------------
-    
-     * 
-     * public void informationInput(int idNumber, String name, String group){
-     * 
-     * setIDNumber(idNumber);
-     * setGroup(group);
-     * setName(name);
-     * 
-     * print();
-     * 
-     * }
-     */
     
     // ------------------------------- Setters ---------------------------
     

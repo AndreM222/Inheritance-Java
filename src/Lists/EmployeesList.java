@@ -14,12 +14,13 @@ public class EmployeesList {
         System.out.print("Input Supervisors Amount: ");
 
         supervisorsCount = Integer.parseInt(inputSC.nextLine());
-    
         Classes.ShiftSupervisor[] supervisorArr = new Classes.ShiftSupervisor[supervisorsCount];
 
         for (int i = 0; i < supervisorArr.length; i++) {
 
             supervisorArr[i] = new ShiftSupervisor();
+
+          //---------------------------------------Input-------------------------------------------------  
 
             System.out.println("\n--Input Supervisor[" + i + "] Information: --\n--");
 
@@ -29,6 +30,13 @@ public class EmployeesList {
             String group = inputSC.nextLine();
             System.out.print("--  Input ID Number: ");
             int idNumber = inputSC.nextInt();
+            
+          //-------------------------------------Clear Console---------------------------------------------  
+            
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+
+          //------------------------------------------Set--------------------------------------------------   
 
             supervisorArr[i].setIDNumber(idNumber);
             supervisorArr[i].setName(name);
