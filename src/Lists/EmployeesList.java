@@ -2,6 +2,8 @@ package Lists;
 
 import java.util.Scanner;
 
+import Classes.ShiftSupervisor;
+
 public class EmployeesList {
 
     Scanner inputSC = new Scanner(System.in);
@@ -17,6 +19,8 @@ public class EmployeesList {
 
         for (int i = 0; i < supervisorArr.length; i++) {
 
+            supervisorArr[i] = new ShiftSupervisor();
+
             System.out.println("\n--Input Supervisor[" + i + "] Information: --\n--");
 
             System.out.print("--  Input Name: ");
@@ -25,7 +29,7 @@ public class EmployeesList {
             String group = inputSC.nextLine();
             System.out.print("--  Input ID Number: ");
             int idNumber = inputSC.nextInt();
-            
+
             supervisorArr[i].setIDNumber(idNumber);
             supervisorArr[i].setName(name);
             supervisorArr[i].setGroup(group);

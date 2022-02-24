@@ -25,6 +25,8 @@ public class TeamLeader extends Employee {
         Classes.ProductionWorker[] workerArr = new Classes.ProductionWorker[workersCounter];
         
         for (int i = 0; i < workerArr.length; i++) {
+
+            workerArr[i] = new ProductionWorker();
         
             System.out.println("\n----------Input Worker[" + i + "] Information: ----------\n----------");
 

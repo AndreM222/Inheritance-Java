@@ -27,6 +27,8 @@ public class ShiftSupervisor extends Employee {
 
         for (int i = 0; i < leaderArr.length; i++) {
 
+            leaderArr[i] = new TeamLeader();
+
             System.out.println("\n-----Input Leader[" + i + "] Information: -----\n-----");
 
             System.out.print("-----  Input Name: ");

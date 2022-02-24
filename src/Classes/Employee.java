@@ -2,9 +2,9 @@ package Classes;
 
 public class Employee {
 
-    private int idNumber;
-    private String name;
-    private String group;
+    private int idNumber = 231241;
+    private String name = "Jerry";
+    private String group = "Business";
 
     /*------------- Driver -----------------
     
