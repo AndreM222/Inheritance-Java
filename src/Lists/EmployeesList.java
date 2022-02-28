@@ -9,9 +9,7 @@ public class EmployeesList {
   private int supervisorsCount;
   ArrayList<Classes.ShiftSupervisor> supervisorArr = new ArrayList<Classes.ShiftSupervisor>();
   
-  public void createEmployeesList() {
-    
-    TerminalStart terminalRef = new TerminalStart();
+  public boolean createEmployeesList() {
     
     System.out.print("Input Supervisors Amount: ");
     
@@ -52,8 +50,7 @@ public class EmployeesList {
       
     } 
     
-    System.out.println(supervisorArr + "finished");
-    terminalRef.startTerminal();
+    return true;
     
   }
 
