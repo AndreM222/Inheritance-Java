@@ -4,7 +4,8 @@ public class Employee {
     
     private int idNumber = 231241;
     private String name = "Jerry";
-    private String group = "Business";
+    private String group = "Cyber Security";
+    private String area = "Software";
     
     // ------------------------------- Setters ---------------------------
     
@@ -13,6 +14,8 @@ public class Employee {
     public void setName(String name) { this.name = name; }
     
     public void setGroup(String group) { this.group = group; }
+
+    public void setArea(String area) { this.area = area; }
     
     // ------------------------------- Getters ---------------------------
     
@@ -21,15 +24,18 @@ public class Employee {
     public String getName() { return name; }
     
     public String getGroup() { return group; }
+
+    public String getArea() { return area; }
     
     // ------------------------------- Printing ---------------------------
     
     public String toString() {
 
         return 
-        "IdName: " + getIDNumber() +
-        "\nName: " + getName() +
-        "\nJob: " + getGroup();
+        "---------- IdName: " + getIDNumber() +
+        "\n---------- Name: " + getName() +
+        "\n---------- Job: " + getGroup() +
+        "\n---------- Area: " + getArea();
 
     }
 

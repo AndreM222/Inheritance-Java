@@ -1,14 +1,14 @@
 package Lists;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class TerminalStart {
     
+    EmployeesList employeesList = new EmployeesList();
+    String[] commandList = new String[5];
+    Scanner inputSC = new Scanner(System.in);
+    
     public void startTerminal() {
         
-        EmployeesList employeesList = new EmployeesList();
-        Scanner inputSC = new Scanner(System.in);
-        String[] commandList = new String[5];
         String inputCommand;
 
         // ---- commands
@@ -49,7 +49,8 @@ public class TerminalStart {
             
         } else if(inputCommand.equals(commandList[3])){ 
             
-            System.out.println("------Still Not Available");
+            // employeesList.showEmployeesList();
+            System.out.println(employeesList.supervisorArr); 
             System.out.println("------Enter To Return------");
             inputCommand = inputSC.nextLine();
             startTerminal();

@@ -1,20 +1,24 @@
 package Classes;
+
 import java.util.Scanner;
+import java.util.ArrayList;
+
 public class TeamLeader extends Employee {
     
     Scanner inputSC = new Scanner(System.in);
     private int workersCounter;
+    ArrayList<Classes.ProductionWorker> workerArr = new ArrayList<Classes.ProductionWorker>();
     
-    public void workerList(String group) {
+    public void createWorkerList(String group, String area) {
         
         System.out.print("--------   Input Workers Amount: ");
 
-        workersCounter = Integer.parseInt(inputSC.nextLine()); 
-        Classes.ProductionWorker[] workerArr = new Classes.ProductionWorker[workersCounter];
+        Classes.ProductionWorker workerRef = new Classes.ProductionWorker();
+        workersCounter = inputSC.nextInt(); 
         
-        for (int i = 0; i < workerArr.length; i++) {
+        for (int i = 0; i < workersCounter; i++) {
 
-            workerArr[i] = new ProductionWorker();
+            workerArr.add(workerRef);
         
           //---------------------------------------Input-------------------------------------------------  
 
@@ -32,12 +36,27 @@ public class TeamLeader extends Employee {
 
           //------------------------------------------Set--------------------------------------------------   
 
-            workerArr[i].setIDNumber(idNumber);
-            workerArr[i].setName(name);
-            workerArr[i].setGroup(group);
+            workerArr.get(i).setIDNumber(idNumber);
+            workerArr.get(i).setName(name);
+            workerArr.get(i).setGroup(group);
+            workerArr.get(i).setArea(area);
 
         }
 
+    }
+
+    public void showWorkerList() {
+  
+      for (int i = 0; i < workerArr.size(); i++) {
+  
+        // ---------------------------------------Input-------------------------------------------------
+  
+        System.out.println("\n--------------- Worker(" + workerArr.get(i).getName() + ")\n");
+  
+        System.out.println(workerArr.get(i));
+  
+      }
+    
     }
 
 }
