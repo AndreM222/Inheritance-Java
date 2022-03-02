@@ -2,14 +2,14 @@ package Classes;
 
 public class Employee {
     
-    private int idNumber = 231241;
+    private String idNumber = "2a1b4c";
     private String name = "Jerry";
     private String group = "Cyber Security";
     private String area = "Software";
     
     // ------------------------------- Setters ---------------------------
     
-    public void setIDNumber(int idNumber) { this.idNumber = idNumber; }
+    public void setIDNumber(String idNumber) { this.idNumber = idNumber; }
     
     public void setName(String name) { this.name = name; }
     
@@ -19,7 +19,7 @@ public class Employee {
     
     // ------------------------------- Getters ---------------------------
     
-    public int getIDNumber() { return idNumber; }
+    public String getIDNumber() { return idNumber; }
     
     public String getName() { return name; }
     

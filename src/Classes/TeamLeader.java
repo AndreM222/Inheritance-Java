@@ -9,7 +9,7 @@ public class TeamLeader extends Employee {
     private int workersCounter;
     ArrayList<Classes.ProductionWorker> workerArr = new ArrayList<Classes.ProductionWorker>();
     
-    public void createWorkerList(String group, String area) {
+    public void createWorkerList(String group, String area, String secundaryID) {
         
         System.out.print("--------   Input Workers Amount: ");
 
@@ -26,8 +26,8 @@ public class TeamLeader extends Employee {
 
             System.out.print("----------  Input Name: ");
             String name = inputSC.nextLine();
-            System.out.print("----------  Input ID Number: ");
-            int idNumber = inputSC.nextInt();
+            System.out.print("----------  Input 2 Digit ID Number: ");
+            String idNumber = inputSC.nextLine();
             
           //-------------------------------------Clear Console---------------------------------------------  
 
@@ -36,13 +36,13 @@ public class TeamLeader extends Employee {
 
           //------------------------------------------Set--------------------------------------------------   
 
-            workerArr.get(i).setIDNumber(idNumber);
+            workerArr.get(i).setIDNumber(secundaryID + idNumber);
             workerArr.get(i).setName(name);
             workerArr.get(i).setGroup(group);
             workerArr.get(i).setArea(area);
 
         }
-
+ 
     }
 
     public void showWorkerList() {
@@ -54,6 +54,8 @@ public class TeamLeader extends Employee {
         System.out.println("\n--------------- Worker(" + workerArr.get(i).getName() + ")\n");
   
         System.out.println(workerArr.get(i));
+
+        System.out.println(this);
   
       }
     

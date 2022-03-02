@@ -18,6 +18,9 @@ public class EmployeesList {
     
     for (int i = 0; i < supervisorsCount; i++) {
       
+      String name, group, area, idNumber, firstNumbers;
+      char setupNumbers;
+    
       supervisorArr.add(supervisorRef);
       
       // ---------------------------------------Input-------------------------------------------------
@@ -25,16 +28,24 @@ public class EmployeesList {
       System.out.println("\n--Input Supervisor[" + i + "] Information: --\n--");
       
       System.out.print("--  Input Name: ");
-      String name = inputSC.nextLine();
+      name = inputSC.nextLine();
       System.out.print("--  Input Group: ");
-      String group = inputSC.nextLine();
+      group = inputSC.nextLine();
       System.out.print("--  Input Area: ");
-      String area = inputSC.nextLine();
-      System.out.print("--  Input ID Number: ");
-      int idNumber = inputSC.nextInt();
+      area = inputSC.nextLine();
+      System.out.print("--  Input 6 Digit ID Number: ");
+      idNumber = inputSC.nextLine();
+      setupNumbers = idNumber.charAt(0);
+      firstNumbers = null;
+
+      for(int i2 = 0; i2 < 2; i2++){
+
+        setupNumbers = idNumber.charAt(i2);
+        firstNumbers = firstNumbers + setupNumbers;
+
+      }
       
       // -------------------------------------Clear
-      // Console---------------------------------------------
       
       System.out.print("\033[H\033[2J");
       System.out.flush();
@@ -46,8 +57,8 @@ public class EmployeesList {
       supervisorArr.get(i).setGroup(group);
       supervisorArr.get(i).setArea(area);
       
-      supervisorArr.get(i).createLeaderList(area);
-      
+      supervisorArr.get(i).createLeaderList(area, firstNumbers);
+
     } 
     
     return true;
