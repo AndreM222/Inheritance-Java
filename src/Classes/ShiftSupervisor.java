@@ -8,16 +8,16 @@ public class ShiftSupervisor extends Employee {
   Scanner inputSC = new Scanner(System.in);
   private int leadersCounter;
   ArrayList<Classes.TeamLeader> leaderArr = new ArrayList<Classes.TeamLeader>();
-
+  
   public void createLeaderList(String area, String firstNumbers) {
-
+    
     System.out.print("---   Input Leaders Amount: ");
-
+    // 
     Classes.TeamLeader leaderRef = new Classes.TeamLeader();
     leadersCounter = inputSC.nextInt();
-
+    
     for (int i = 0; i < leadersCounter; i++) {
-
+      
       String name, group, idNumber, secondNumbers;
       char setupNumbers;
 
@@ -54,10 +54,11 @@ public class ShiftSupervisor extends Employee {
       leaderArr.get(i).setName(name);
       leaderArr.get(i).setGroup(group);
       leaderArr.get(i).setArea(area);
-
+      
       leaderArr.get(i).createWorkerList(group, area, secondNumbers);
 
     }
+
   }
 
   public void showLeaderList() {
@@ -67,8 +68,11 @@ public class ShiftSupervisor extends Employee {
       // ---------------------------------------Input-------------------------------------------------
 
       System.out.println(
-          "\n-------------------- Leader(" + leaderArr.get(i).getName() + ") [" + leaderArr.get(i).getArea() + "]->["
-              + leaderArr.get(i).getGroup() + "] ID: " + leaderArr.get(i).getIDNumber() + " --------------------\n");
+
+        "\n-------------------- Leader(" + leaderArr.get(i).getName() + ") [" + leaderArr.get(i).getArea() + "]->["
+        + leaderArr.get(i).getGroup() + "] ID: " + leaderArr.get(i).getIDNumber() + " --------------------\n"
+        
+      );
 
       leaderArr.get(i).showWorkerList();
 
