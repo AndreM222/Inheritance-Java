@@ -54,11 +54,13 @@ public class TerminalStart {
 
         } else if (inputCommand.equals(commandList[3])) {
 
-            // System.out.println(employeesList.supervisorArr);
             employeesList.showEmployeesList();
-            System.out.println("------Enter To Return------");
+            System.out.print("------Enter To Return------");
             inputCommand = inputSC.nextLine();
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
             startTerminal();
+
         } else if (inputCommand.equals(commandList[5])) {
 
             startTerminal();

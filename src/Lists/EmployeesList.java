@@ -1,6 +1,7 @@
 package Lists;
 
 import java.util.Scanner;
+import Classes.ShiftSupervisor;
 import java.util.ArrayList;
 
 public class EmployeesList {
@@ -13,27 +14,30 @@ public class EmployeesList {
 
     System.out.print("Input Supervisors Amount: ");
 
-    Classes.ShiftSupervisor supervisorRef = new Classes.ShiftSupervisor();
-    supervisorsCount = inputSC.nextInt();
-
+    try {
+      supervisorsCount = Integer.parseInt(inputSC.nextLine());
+    } catch (NumberFormatException e) {
+      System.err.println("Incorrect Input Type");
+      System.exit(1);
+    }
+    
     for (int i = 0; i < supervisorsCount; i++) {
-
+      
+      Classes.ShiftSupervisor supervisorRef = new Classes.ShiftSupervisor();
       String name, group, area, idNumber, firstNumbers;
       char setupNumbers;
 
-      supervisorArr.add(supervisorRef);
-
       // ---------------------------------------Input-------------------------------------------------
 
-      System.out.println("\n--Input Supervisor[" + i + "] Information: --\n--");
+      System.out.printf("-------- Input Supervisor[%d] Information: %n", i);
 
-      System.out.print("--  Input Name: ");
+      System.out.print("----------  Input Name: ");
       name = inputSC.nextLine();
-      System.out.print("--  Input Group: ");
+      System.out.print("----------  Input Group: ");
       group = inputSC.nextLine();
-      System.out.print("--  Input Area: ");
+      System.out.print("----------  Input Area: ");
       area = inputSC.nextLine();
-      System.out.print("--  Input 6 Digit ID Number: ");
+      System.out.print("----------  Input 6 Digit ID Number: ");
       idNumber = inputSC.nextLine();
       setupNumbers = idNumber.charAt(0);
       firstNumbers = "";
@@ -53,13 +57,14 @@ public class EmployeesList {
       System.out.flush();
 
       // ------------------------------------------Set--------------------------------------------------
+      
+      supervisorRef.setIDNumber(idNumber);
+      supervisorRef.setName(name);
+      supervisorRef.setGroup(group);
+      supervisorRef.setArea(area);
+      supervisorRef.createLeaderList(area, firstNumbers);
 
-      supervisorArr.get(i).setIDNumber(idNumber);
-      supervisorArr.get(i).setName(name);
-      supervisorArr.get(i).setGroup(group);
-      supervisorArr.get(i).setArea(area);
-      supervisorArr.get(i).createLeaderList(area, firstNumbers);
-
+      supervisorArr.add(supervisorRef);
     }
 
     return true;
@@ -67,17 +72,15 @@ public class EmployeesList {
   }
 
   public void showEmployeesList() {
-    System.out.println(supervisorArr.size());
+    
     for (int i = 0; i < supervisorArr.size(); i++) {
-
-      // ---------------------------------------Input-------------------------------------------------
-      System.out.println("\n------------------------- Supervisor(" + supervisorArr.get(i).getName() + ") ["
-          + supervisorArr.get(i).getArea() + "] -------------------------\n");
-
-      supervisorArr.get(i).showLeaderList();
-
+      
+      ShiftSupervisor shiftRef = supervisorArr.get(i);
+      
+      System.out.printf("%n------------------------- Supervisor(%s) [%s] {%s} -------------------------%n", shiftRef.getName(), shiftRef.getArea(),
+      shiftRef.getIDNumber());
+      shiftRef.showLeaderList();
+      
     }
-
   }
-
 }

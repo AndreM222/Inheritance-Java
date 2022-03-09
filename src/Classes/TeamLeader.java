@@ -13,16 +13,24 @@ public class TeamLeader extends Employee {
 
     System.out.print("--------   Input Workers Amount: ");
 
-    Classes.ProductionWorker workerRef = new Classes.ProductionWorker();
-    workersCounter = inputSC.nextInt();
+    try {
 
+      workersCounter = Integer.parseInt(inputSC.nextLine());
+
+    } catch (NumberFormatException e) {
+
+      System.err.println("Incorrect Input Type");
+      System.exit(1);
+      
+    }
+    
     for (int i = 0; i < workersCounter; i++) {
-
-      workerArr.add(workerRef);
+      
+      Classes.ProductionWorker workerRef = new Classes.ProductionWorker();
       
       // ---------------------------------------Input-------------------------------------------------
       
-      System.out.println("\n----------Input Worker[" + i + "] Information: ----------\n----------");
+      System.out.printf("-------- Input Worker[%d] Information: %n", i);
       
       System.out.print("----------  Input Name: ");
       String name = inputSC.nextLine();
@@ -37,23 +45,25 @@ public class TeamLeader extends Employee {
       
       // ------------------------------------------Set--------------------------------------------------
       
-      workerArr.get(i).setIDNumber(secundaryID + idNumber);
-      workerArr.get(i).setName(name);
-      workerArr.get(i).setGroup(group);
-      workerArr.get(i).setArea(area);
+      workerRef.setIDNumber(secundaryID + idNumber);
+      workerRef.setName(name);
+      workerRef.setGroup(group);
+      workerRef.setArea(area);
       
+      workerArr.add(workerRef);
+
     }
-
+    
   }
-
+  
   public void showWorkerList() {
-
+    
     for (int i = 0; i < workerArr.size(); i++) {
-
+      
       // ---------------------------------------Input-------------------------------------------------
-
+      
       System.out.println("\n--------------- Worker(" + workerArr.get(i).getName() + ")\n");
-
+      
       System.out.println(workerArr.get(i));
 
     }
