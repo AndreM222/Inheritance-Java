@@ -7,22 +7,28 @@ public class TeamLeader extends Employee {
 
   Scanner inputSC = new Scanner(System.in);
   private int workersCounter;
-  ArrayList<Classes.ProductionWorker> workerArr = new ArrayList<Classes.ProductionWorker>();
+  private String idNumber, name;
+  public ArrayList<Classes.ProductionWorker> workerArr = new ArrayList<Classes.ProductionWorker>();
 
   public void createWorkerList(String group, String area, String secundaryID) {
 
-    System.out.print("--------   Input Workers Amount: ");
-
-    try {
-
-      workersCounter = Integer.parseInt(inputSC.nextLine());
-
-    } catch (NumberFormatException e) {
-
-      System.err.println("Incorrect Input Type");
-      System.exit(1);
+    
+    do {
       
-    }
+      System.out.print("--------   Input Workers Amount: ");
+      
+      try {
+
+        workersCounter = Integer.parseInt(inputSC.nextLine());
+
+      } catch (NumberFormatException e) {
+
+        System.err.println("Incorrect Input Type");
+
+      }
+
+      
+    } while (workersCounter < 1);
     
     for (int i = 0; i < workersCounter; i++) {
       
@@ -33,9 +39,14 @@ public class TeamLeader extends Employee {
       System.out.printf("-------- Input Worker[%d] Information: %n", i);
       
       System.out.print("----------  Input Name: ");
-      String name = inputSC.nextLine();
-      System.out.print("----------  Input 2 Digit ID Number: ");
-      String idNumber = inputSC.nextLine();
+      name = inputSC.nextLine();
+      
+      do {
+        
+        System.out.print("----------  Input 2 Digit ID Number: ");
+        idNumber = inputSC.nextLine();
+
+      } while (idNumber.length() != 2);
       
       // -------------------------------------Clear
       // Console---------------------------------------------

@@ -2,10 +2,10 @@ package Classes;
 
 public class Employee {
     
-    private String idNumber = "2a1b4c";
-    private String name = "Jerry";
-    private String group = "Cyber Security";
-    private String area = "Software";
+    private String idNumber;
+    private String name;
+    private String group;
+    private String area;
     
     // ------------------------------- Setters ---------------------------
     

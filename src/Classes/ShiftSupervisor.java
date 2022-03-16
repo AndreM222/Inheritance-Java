@@ -5,59 +5,68 @@ import java.util.ArrayList;
 
 public class ShiftSupervisor extends Employee {
 
+
   Scanner inputSC = new Scanner(System.in);
   private int leadersCounter;
-  ArrayList<TeamLeader> leaderArr = new ArrayList<TeamLeader>();
-  
+  public ArrayList<TeamLeader> leaderArr = new ArrayList<TeamLeader>();
+
   public void createLeaderList(String area, String firstNumbers) {
 
-    System.out.print("---   Input Leaders Amount: ");
+    do {
 
-    try { 
+      System.out.print("---   Input Leaders Amount: ");
 
-      leadersCounter = Integer.parseInt(inputSC.nextLine());
+      try {
 
-    } catch (NumberFormatException e) {
+        leadersCounter = Integer.parseInt(inputSC.nextLine());
 
-      System.err.println("Incorrect Input Type");
-      System.exit(1);
-      
-    }
-    
+      } catch (NumberFormatException e) {
+
+        System.err.println("Incorrect Input Type");
+
+      }
+
+    } while (leadersCounter < 1);
+
     for (int i = 0; i < leadersCounter; i++) {
-      
+
       TeamLeader leaderRef = new TeamLeader();
       String name, group, idNumber, secondNumbers;
       char setupNumbers;
 
       secondNumbers = firstNumbers;
-      
+
       // ---------------------------------------Input--------------------------------------------------
-      
+
       System.out.printf("-------- Input Leader[%d] Information: %n", i);
-      
+
       System.out.print("----------  Input Name: ");
       name = inputSC.nextLine();
       System.out.print("----------  Input Group: ");
       group = inputSC.nextLine();
-      System.out.print("----------  Input 4 Digit ID Number: ");
-      idNumber = inputSC.nextLine();
-      
+
+      do {
+
+        System.out.print("----------  Input 4 Digit ID Number: ");
+        idNumber = inputSC.nextLine();
+
+      } while (idNumber.length() != 4);
+
       for (int i2 = 2; i2 < 4; i2++) {
-        
+
         setupNumbers = idNumber.charAt(i2);
         secondNumbers = secondNumbers + setupNumbers;
-        
+
       }
-      
+
       // -------------------------------------Clear
       // Console---------------------------------------------
-      
+
       System.out.print("\033[H\033[2J");
       System.out.flush();
-      
+
       // ------------------------------------------Set--------------------------------------------------
-      
+
       leaderRef.setIDNumber(firstNumbers + idNumber);
       leaderRef.setName(name);
       leaderRef.setGroup(group);
@@ -65,7 +74,7 @@ public class ShiftSupervisor extends Employee {
 
       leaderRef.createWorkerList(group, area, secondNumbers);
       leaderArr.add(leaderRef);
-      
+
     }
 
   }
@@ -77,8 +86,9 @@ public class ShiftSupervisor extends Employee {
       TeamLeader leaderArrRef = leaderArr.get(i);
       // ---------------------------------------Input-------------------------------------------------
 
-      System.out.printf("%n-------------------- Leader(%s) [%s]->[%s] {%s} --------------------%n", leaderArrRef.getName(), leaderArrRef.getArea(),
-      leaderArrRef.getGroup(), leaderArrRef.getIDNumber());
+      System.out.printf("%n-------------------- Leader(%s) [%s]->[%s] {%s} --------------------%n",
+          leaderArrRef.getName(), leaderArrRef.getArea(),
+          leaderArrRef.getGroup(), leaderArrRef.getIDNumber());
 
       leaderArr.get(i).showWorkerList();
 

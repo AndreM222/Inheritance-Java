@@ -11,8 +11,10 @@ Inheritance -> Is like creating a child from a class
 ANSI escape code -> Is a sequence which can be interpeted as commands combined with bytes and characters
 
                  -> \033 means ESC or escape
-                 -> combining 033 with [H moves the cursor to a specified position
+                 -> combining \033 with [H moves the cursor to a specified position
                  -> 033[2J cleans the whole screen
+
+                 -> Total: \033[H\033[2J
 
                  ->flush() flushes the content of the buffer to the output stream
 
