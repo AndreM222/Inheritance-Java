@@ -117,7 +117,7 @@ public class EmployeesList {
 
       switch (position) {
 
-        // ------------------Check for supervisor-------------------------
+        // ---------------------------Check for supervisor--------------------------
         case 0:
           if (position == 0 && foundEmployee == false && searchFail == false) {
 
@@ -127,7 +127,7 @@ public class EmployeesList {
               Boolean superChildFound = (employeeSID.charAt(0) == supervisorRef.getIDNumber().charAt(0)
                   && employeeSID.charAt(1) == supervisorRef.getIDNumber().charAt(1));
 
-              // ------------------------Look for employee start
+              // ------------------Look for employee start
 
               if (employeeSID.equals(supervisorRef.getIDNumber())) {
 
@@ -136,8 +136,8 @@ public class EmployeesList {
 
               } else if (superChildFound) {
 
-                position++;
                 uSupervisorRef = supervisorRef;
+                position++;
 
               } else if (currentSupervisor == supervisorArr.size()) {
 
@@ -150,7 +150,7 @@ public class EmployeesList {
 
           }
 
-          // ---------------------Check for leader-------------------------
+          // ------------------------------Check for leader-------------------------
 
         case 1:
 
@@ -159,10 +159,10 @@ public class EmployeesList {
             for (currentLeader = 0; currentLeader < uSupervisorRef.leaderArr.size(); currentLeader++) {
 
               TeamLeader leaderRef = uSupervisorRef.leaderArr.get(currentLeader);
-              Boolean leaderChildFound = employeeSID.charAt(0) == leaderRef.getIDNumber().charAt(0)
-                  && employeeSID.charAt(1) == leaderRef.getIDNumber().charAt(1);
+              Boolean leaderChildFound = employeeSID.charAt(2) == leaderRef.getIDNumber().charAt(2)
+                  && employeeSID.charAt(3) == leaderRef.getIDNumber().charAt(3);
 
-              // ------------------------Look for employee middle
+              // ------------------Look for employee middle
 
               if (employeeSID.equals(leaderRef.getIDNumber())) {
 
@@ -171,8 +171,8 @@ public class EmployeesList {
 
               } else if (leaderChildFound) {
 
-                position++;
                 uLeaderRef = leaderRef;
+                position++;
 
               } else if (currentLeader == uSupervisorRef.leaderArr.size()) {
 
@@ -185,17 +185,17 @@ public class EmployeesList {
 
           }
 
-          // ---------------------Check for worker-------------------------
+          // ------------------------------Check for worker-------------------------
 
         case 2:
 
           if (position == 2 && foundEmployee == false && searchFail == false) {
 
             for (currentWorker = 0; currentWorker < uLeaderRef.workerArr.size(); currentWorker++) {
-
+              
               ProductionWorker workerRef = uLeaderRef.workerArr.get(currentWorker);
 
-              // ------------------------Look for employee end
+              // ------------------Look for employee end
 
               if (employeeSID.equals(workerRef.getIDNumber())) {
 
