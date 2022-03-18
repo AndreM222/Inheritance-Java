@@ -60,6 +60,7 @@ public class TeamLeader extends Employee {
       workerRef.setName(name);
       workerRef.setGroup(group);
       workerRef.setArea(area);
+      workerRef.setType("Worker");
       
       workerArr.add(workerRef);
 
@@ -72,8 +73,6 @@ public class TeamLeader extends Employee {
     for (int i = 0; i < workerArr.size(); i++) {
       
       // ---------------------------------------Input-------------------------------------------------
-      
-      System.out.println("\n--------------- Worker(" + workerArr.get(i).getName() + ")\n");
       
       System.out.println(workerArr.get(i));
 

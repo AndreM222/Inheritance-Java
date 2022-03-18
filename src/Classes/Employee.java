@@ -6,6 +6,7 @@ public class Employee {
     private String name;
     private String group;
     private String area;
+    private String type;
     
     // ------------------------------- Setters ---------------------------
     
@@ -16,6 +17,8 @@ public class Employee {
     public void setGroup(String group) { this.group = group; }
 
     public void setArea(String area) { this.area = area; }
+
+    public void setType(String type) { this.type = type; }
     
     // ------------------------------- Getters ---------------------------
     
@@ -26,13 +29,17 @@ public class Employee {
     public String getGroup() { return group; }
 
     public String getArea() { return area; }
+
+    public String getType() { return type; }
     
     // ------------------------------- Printing ---------------------------
     
     public String toString() {
 
         return 
-        "---------- IdName: " + getIDNumber() +
+        "\n--------------- " + getType() + " (" + getName() + ")\n" +
+
+        "\n---------- IdName: " + getIDNumber() +
         "\n---------- Name: " + getName() +
         "\n---------- Job: " + getGroup() +
         "\n---------- Area: " + getArea();

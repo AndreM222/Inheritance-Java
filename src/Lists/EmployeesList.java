@@ -13,7 +13,6 @@ public class EmployeesList {
   Scanner inputSC = new Scanner(System.in);
   private int supervisorsCount;
   public ArrayList<ShiftSupervisor> supervisorArr = new ArrayList<ShiftSupervisor>();
-
   public boolean createEmployeesList() {
 
     do {
@@ -79,6 +78,7 @@ public class EmployeesList {
       supervisorRef.setName(name);
       supervisorRef.setGroup(group);
       supervisorRef.setArea(area);
+      supervisorRef.setType("Supervisor");
       supervisorRef.createLeaderList(area, firstNumbers);
 
       supervisorArr.add(supervisorRef);
@@ -112,7 +112,8 @@ public class EmployeesList {
     int position = 0, currentSupervisor, currentLeader, currentWorker;
     ShiftSupervisor uSupervisorRef = new ShiftSupervisor();
     TeamLeader uLeaderRef = new TeamLeader();
-
+    
+    // ---------------------------Find Employee--------------------------
     do {
 
       switch (position) {
@@ -192,7 +193,7 @@ public class EmployeesList {
           if (position == 2 && foundEmployee == false && searchFail == false) {
 
             for (currentWorker = 0; currentWorker < uLeaderRef.workerArr.size(); currentWorker++) {
-              
+
               ProductionWorker workerRef = uLeaderRef.workerArr.get(currentWorker);
 
               // ------------------Look for employee end

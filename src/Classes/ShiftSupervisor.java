@@ -71,6 +71,7 @@ public class ShiftSupervisor extends Employee {
       leaderRef.setName(name);
       leaderRef.setGroup(group);
       leaderRef.setArea(area);
+      leaderRef.setType("Leader");
 
       leaderRef.createWorkerList(group, area, secondNumbers);
       leaderArr.add(leaderRef);

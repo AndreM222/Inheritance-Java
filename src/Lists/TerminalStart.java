@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class TerminalStart {
 
     EmployeesList employeesList = new EmployeesList();
-    String[] commandList = new String[7];
+    String[] commandList = new String[6];
+    String[] description = new String[6];
     Scanner inputSC = new Scanner(System.in);
     String inputCommand;
 
@@ -13,13 +14,12 @@ public class TerminalStart {
 
         // ---- commands
 
-        commandList[0] = "help";
-        commandList[1] = "create";
-        commandList[2] = "exit";
-        commandList[3] = "show list";
-        commandList[4] = "find";
-        commandList[5] = "clear";
-        commandList[6] = "add";
+        commandList[0] = "help"; description[0] = "Show Commands";
+        commandList[1] = "create"; description[1] = "Create new list of employees";
+        commandList[2] = "exit"; description[2] = "Stop terminal";
+        commandList[3] = "show list"; description[3] = "Show all employees";
+        commandList[4] = "find"; description[4] = "Find Employee";
+        commandList[5] = "clear"; description[5] = "Clear terminal";
 
     }
 
@@ -37,10 +37,11 @@ public class TerminalStart {
 
             for (int i = 0; i < commandList.length; i++) {
 
-                System.out.println("\n- " + commandList[i]);
+                System.out.println("\n- " + commandList[i] + "   -   " + description[i]);
 
             }
 
+            System.out.print("------Enter To Return------");
             inputCommand = inputSC.nextLine();
             System.out.print("\033[H\033[2J");
             System.out.flush();
