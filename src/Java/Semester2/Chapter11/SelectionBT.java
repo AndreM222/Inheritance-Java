@@ -15,7 +15,7 @@ public class SelectionBT {
     
     // ---------------------- Customize ----------------------
     
-    SelectionBT() {
+    public SelectionBT() {
         
         menuSelection.setStyle("-fx-background-color: #1d1f26;");
         menuSelection.setMinHeight(50);
