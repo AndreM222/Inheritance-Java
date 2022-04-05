@@ -1,10 +1,10 @@
-package Lists;
+package Java.Semester2.Chapter09.Lists;
 
 import java.util.Scanner;
 
-import Classes.ProductionWorker;
-import Classes.ShiftSupervisor;
-import Classes.TeamLeader;
+import Java.Semester2.Chapter09.Classes.ProductionWorker;
+import Java.Semester2.Chapter09.Classes.ShiftSupervisor;
+import Java.Semester2.Chapter09.Classes.TeamLeader;
 
 import java.util.ArrayList;
 
@@ -33,7 +33,7 @@ public class EmployeesList {
 
     for (int i = 0; i < supervisorsCount; i++) {
 
-      Classes.ShiftSupervisor supervisorRef = new Classes.ShiftSupervisor();
+      ShiftSupervisor supervisorRef = new ShiftSupervisor();
       String name, group, area, idNumber, firstNumbers;
       char setupNumbers;
 

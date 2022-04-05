@@ -1,4 +1,4 @@
-package Lists;
+package Java.Semester2.Chapter09.Lists;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Classes;
+package Java.Semester2.Chapter09.Classes;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ public class TeamLeader extends Employee {
   Scanner inputSC = new Scanner(System.in);
   private int workersCounter;
   private String idNumber, name;
-  public ArrayList<Classes.ProductionWorker> workerArr = new ArrayList<Classes.ProductionWorker>();
+  public ArrayList<ProductionWorker> workerArr = new ArrayList<ProductionWorker>();
 
   public void createWorkerList(String group, String area, String secundaryID) {
 
@@ -32,7 +32,7 @@ public class TeamLeader extends Employee {
     
     for (int i = 0; i < workersCounter; i++) {
       
-      Classes.ProductionWorker workerRef = new Classes.ProductionWorker();
+      ProductionWorker workerRef = new ProductionWorker();
       
       // ---------------------------------------Input-------------------------------------------------
       
