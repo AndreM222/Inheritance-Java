@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -52,8 +53,10 @@ public class TranslatorScene {
             searchBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #7f80a0;");
             listBox.setStyle("-fx-background-color: #2e3347;");
             listScroll.setStyle("-fx-background-color: #191c26;");
-            listBox.setMinSize(355, 343);
+            listScroll.setFitToHeight(true);
             listScroll.setMaxSize(357, 360);
+            listScroll.setHbarPolicy(ScrollBarPolicy.NEVER);
+            
             translatorIcon.setFitWidth(50);
             translatorIcon.setFitHeight(50);
 

@@ -80,7 +80,5 @@ public class WordFunction {
         return vbox;
 
     }
-
-    
     
 }
