@@ -52,7 +52,7 @@ public class TranslatorScene {
             searchBox.setStyle("-fx-background-color: #3c3d51; -fx-text-fill: #ffffff;");
             searchBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #7f80a0;");
             listBox.setStyle("-fx-background-color: #2e3347;");
-            listScroll.setStyle("-fx-background-color: #191c26;");
+            listScroll.setStyle("-fx-background: #191c26; -fx-background-color: black;");
             listScroll.setFitToHeight(true);
             listScroll.setMaxSize(357, 360);
             listScroll.setHbarPolicy(ScrollBarPolicy.NEVER);

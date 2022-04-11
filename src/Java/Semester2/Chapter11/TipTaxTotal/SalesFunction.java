@@ -17,7 +17,7 @@ public class SalesFunction {
     
     // -------------------- New Words ----------------------
 
-    SalesFunction(String object, int amount, int price) {
+    SalesFunction(String object, int amount, float price) {
 
         this.object = object;
         this.amount = amount;
@@ -26,7 +26,7 @@ public class SalesFunction {
     }
     
     private String object;
-    private int price;
+    private float price;
     private int amount = 2;
     private float total;
 
@@ -58,7 +58,7 @@ public class SalesFunction {
         objRectangle.setArcHeight(20);
         objRectangle.setArcWidth(20);
         
-        totalTXT.setFont(new Font("Comic Sans MS", 15));
+        totalTXT.setFont(new Font("Comic Sans MS", 10));
         totalTXT.setTextFill(Color.WHITE);
         
         hbox.setStyle("-fx-background-color: #7f80a0;");

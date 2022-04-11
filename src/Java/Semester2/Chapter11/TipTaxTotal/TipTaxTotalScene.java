@@ -20,6 +20,9 @@ import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+
+import java.text.DecimalFormat;
+
 import Java.Semester2.Chapter11.SelectionBT;
 
 public class TipTaxTotalScene {
@@ -60,16 +63,16 @@ public class TipTaxTotalScene {
             vbox.setTranslateX(25);
             vbox.setTranslateY(25);
 
-            food.setStyle("-fx-background-color: #6668b0;");
-            food.setMinWidth(154);;
-            food.setPromptText("Food Type");
-            amount.setStyle("-fx-background-color: #6668b0;");
-            amount.setMinWidth(154);
-            amount.setPromptText("Quantity");
+            foodType.setStyle("-fx-background-color: #6668b0;");
+            foodType.setMinWidth(154);
+            foodType.getSelectionModel().selectFirst();
+            amountCount.setStyle("-fx-background-color: #6668b0;");
+            amountCount.setMinWidth(154);
+            amountCount.getSelectionModel().selectFirst();
             searchBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #7f80a0;");
 
             listBox.setStyle("-fx-background-color: #2e3347;");
-            listScroll.setStyle("-fx-background-color: #191c26;");
+            listScroll.setStyle("-fx-background: #191c26; -fx-background-color: black;");
             listScroll.setFitToHeight(true);
             listScroll.setMaxSize(355, 235);
             listScroll.setHbarPolicy(ScrollBarPolicy.NEVER);
@@ -83,18 +86,19 @@ public class TipTaxTotalScene {
     
     // -------------------- Variables ----------------------
 
-    private String[] foodType = {"Chicken", "Beef", "Stake", "Dumpling", };
-    private String[] amountInt = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-
     private SelectionBT selectionRef = new SelectionBT();
     private SalesList salesListRef = new SalesList();
+    private FoodList foodListRef = new FoodList();
+    
+    private Integer[] amountInt = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    private DecimalFormat taxFormated = new DecimalFormat("0.00");
 
-    private ComboBox<String> food = new ComboBox<String>(FXCollections.observableArrayList(foodType));
-    private ComboBox<String> amount = new ComboBox<String>(FXCollections.observableArrayList(amountInt));
+    private ComboBox<String> foodType = new ComboBox<String>(FXCollections.observableArrayList(foodListRef.getFood()));
+    private ComboBox<Integer> amountCount = new ComboBox<Integer>(FXCollections.observableArrayList(amountInt));
     private Label welcomeMSG = new Label("Tip, Tax, Total");
     private Label totalPrice = new Label("Total: " + salesListRef.getTotalAddition()+ "$ +");
     private Label tip = new Label("Tip: " + salesListRef.getTip() + "$ +");
-    private Label taxTotal = new Label(salesListRef.getTaxLabel());
+    private Label taxTotal = new Label("("+ salesListRef.getTaxAmount() + "%)Tax: " + taxFormated.format(salesListRef.getTaxCalculation()) + "$ +");
     private Label finalPrice = new Label(salesListRef.getFinalPrice());
     private BorderPane root = new BorderPane();
     private Button searchBT = new Button("Add");
@@ -103,10 +107,10 @@ public class TipTaxTotalScene {
     private ImageView tipTaxTotalIcon = new ImageView("Java/Semester2/Chapter11/CH11Icons/TipTaxTotalTitle.png");
     
     private HBox title = new HBox(10, tipTaxTotalIcon, welcomeMSG);
-    private VBox listBox = new VBox(salesListRef.addList(taxTotal));
+    private VBox listBox = new VBox();
     private ScrollPane listScroll = new ScrollPane(listBox);
     private Scene tipTaxTotalScene = new Scene(root, 1000, 600);
-    private HBox search = new HBox(5, searchBT,food , amount);
+    private HBox search = new HBox(5, searchBT,foodType , amountCount);
     private VBox infoBox = new VBox(totalPrice, tip, taxTotal, priceRectangle, finalPrice);
     private VBox vbox = new VBox(10, title, search, listScroll, infoBox);
     private Group window = new Group(rectangle,vbox);
@@ -161,10 +165,15 @@ public class TipTaxTotalScene {
             
             public void handle(MouseEvent t) {
 
+                String object = foodType.getValue();
+                int amount = amountCount.getValue();
+                float price = foodListRef.getPrice(foodType.getItems().indexOf(foodType.getValue())); 
                 searchBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #c6c8e1;");
-                listBox.getChildren().clear();
-
-                listBox.getChildren().addAll(salesListRef.addList(taxTotal));
+                SalesFunction salesFunctionRef = new SalesFunction(object, amount, price);
+                salesListRef.getArrList().add(salesFunctionRef);
+                listBox.getChildren().addAll(salesListRef.addList());
+                totalPrice.setText("Total: " + salesListRef.getTotalAddition()+ "$ +");
+                taxTotal.setText("("+ salesListRef.getTaxAmount() + "%)Tax: " + taxFormated.format(salesListRef.getTaxCalculation()) + "$ +");
                 
             }
 
