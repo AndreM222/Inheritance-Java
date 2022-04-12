@@ -20,9 +20,7 @@ import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-
 import java.text.DecimalFormat;
-
 import Java.Semester2.Chapter11.SelectionBT;
 
 public class TipTaxTotalScene {
@@ -40,8 +38,8 @@ public class TipTaxTotalScene {
             welcomeMSG.setTextFill(Color.WHITE);
             totalPrice.setFont(new Font("Comic Sans MS", 15));
             totalPrice.setTextFill(Color.WHITE);
-            finalPrice.setFont(new Font("Comic Sans MS", 15));
-            finalPrice.setTextFill(Color.WHITE);
+            finalPriceTxt.setFont(new Font("Comic Sans MS", 15));
+            finalPriceTxt.setTextFill(Color.WHITE);
             tip.setFont(new Font("Comic Sans MS", 15));
             tip.setTextFill(Color.WHITE);
             taxTotal.setFont(new Font("Comic Sans MS", 15));
@@ -58,8 +56,9 @@ public class TipTaxTotalScene {
             title.setAlignment(Pos.CENTER);
             vbox.setAlignment(Pos.CENTER);
             VBox.setVgrow(listScroll, Priority.ALWAYS);
-            VBox.setVgrow(listBox, Priority.ALWAYS);
+            VBox.setVgrow(salesListRef.getListBox(), Priority.ALWAYS);
             vbox.setMinSize(350, 450);
+            vbox.setMaxHeight(450);
             vbox.setTranslateX(25);
             vbox.setTranslateY(25);
 
@@ -70,8 +69,9 @@ public class TipTaxTotalScene {
             amountCount.setMinWidth(154);
             amountCount.getSelectionModel().selectFirst();
             searchBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #7f80a0;");
+            deleteBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #7f80a0;");
 
-            listBox.setStyle("-fx-background-color: #2e3347;");
+            salesListRef.getListBox().setStyle("-fx-background-color: #2e3347;");
             listScroll.setStyle("-fx-background: #191c26; -fx-background-color: black;");
             listScroll.setFitToHeight(true);
             listScroll.setMaxSize(355, 235);
@@ -99,19 +99,19 @@ public class TipTaxTotalScene {
     private Label totalPrice = new Label("Total: " + salesListRef.getTotalAddition()+ "$ +");
     private Label tip = new Label("Tip: " + salesListRef.getTip() + "$ +");
     private Label taxTotal = new Label("("+ salesListRef.getTaxAmount() + "%)Tax: " + taxFormated.format(salesListRef.getTaxCalculation()) + "$ +");
-    private Label finalPrice = new Label(salesListRef.getFinalPrice());
+    private Label finalPriceTxt = new Label("Final Price: " + taxFormated.format(salesListRef.getFinalPrice()) + "$");
     private BorderPane root = new BorderPane();
+    private Button deleteBT = new Button("Delete All");
     private Button searchBT = new Button("Add");
     private Rectangle rectangle = new Rectangle(400, 500);
     private Rectangle priceRectangle = new Rectangle(200, 10);
     private ImageView tipTaxTotalIcon = new ImageView("Java/Semester2/Chapter11/CH11Icons/TipTaxTotalTitle.png");
     
     private HBox title = new HBox(10, tipTaxTotalIcon, welcomeMSG);
-    private VBox listBox = new VBox();
-    private ScrollPane listScroll = new ScrollPane(listBox);
+    private ScrollPane listScroll = new ScrollPane(salesListRef.getListBox());
     private Scene tipTaxTotalScene = new Scene(root, 1000, 600);
     private HBox search = new HBox(5, searchBT,foodType , amountCount);
-    private VBox infoBox = new VBox(totalPrice, tip, taxTotal, priceRectangle, finalPrice);
+    private VBox infoBox = new VBox(deleteBT, totalPrice, tip, taxTotal, priceRectangle, finalPriceTxt);
     private VBox vbox = new VBox(10, title, search, listScroll, infoBox);
     private Group window = new Group(rectangle,vbox);
     
@@ -135,6 +135,16 @@ public class TipTaxTotalScene {
 
         });
 
+        deleteBT.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+            public void handle(MouseEvent t) {
+
+                deleteBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #c6c8e1;");
+
+            }
+
+        });
+
         // -------------------- UnHover ----------------------
 
         searchBT.setOnMouseExited(new EventHandler<MouseEvent>() {
@@ -142,6 +152,16 @@ public class TipTaxTotalScene {
             public void handle(MouseEvent t) {
 
                 searchBT.setStyle("-fx-background-radius: 5em;-fx-background-color: #7f80a0;");
+
+            }
+
+        });
+
+        deleteBT.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+            public void handle(MouseEvent t) {
+
+                deleteBT.setStyle("-fx-background-radius: 5em;-fx-background-color: #7f80a0;");
 
             }
 
@@ -159,6 +179,16 @@ public class TipTaxTotalScene {
 
         });
 
+        deleteBT.setOnMousePressed(new EventHandler<MouseEvent>(){
+
+            public void handle(MouseEvent t) {
+
+                deleteBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #565778;");
+
+            }
+
+        });
+
         // -------------------- OnReleased ----------------------
 
         searchBT.setOnMouseReleased(new EventHandler<MouseEvent>() {
@@ -171,10 +201,25 @@ public class TipTaxTotalScene {
                 searchBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #c6c8e1;");
                 SalesFunction salesFunctionRef = new SalesFunction(object, amount, price);
                 salesListRef.getArrList().add(salesFunctionRef);
-                listBox.getChildren().addAll(salesListRef.addList());
+                salesListRef.getListBox().getChildren().addAll(salesListRef.addList());
                 totalPrice.setText("Total: " + salesListRef.getTotalAddition()+ "$ +");
                 taxTotal.setText("("+ salesListRef.getTaxAmount() + "%)Tax: " + taxFormated.format(salesListRef.getTaxCalculation()) + "$ +");
-                
+                finalPriceTxt.setText("Final Price: " + taxFormated.format(salesListRef.getFinalPrice()) + "$");
+
+            }
+
+        });
+
+        deleteBT.setOnMouseReleased(new EventHandler<MouseEvent>(){
+
+            public void handle(MouseEvent t) {
+
+                deleteBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #c6c8e1;");
+                salesListRef.removeList();
+                totalPrice.setText("Total: " + salesListRef.getTotalAddition()+ "$ +");
+                taxTotal.setText("("+ salesListRef.getTaxAmount() + "%)Tax: " + taxFormated.format(salesListRef.getTaxCalculation()) + "$ +");
+                finalPriceTxt.setText("Final Price: " + taxFormated.format(salesListRef.getFinalPrice()) + "$");
+
             }
 
         });
