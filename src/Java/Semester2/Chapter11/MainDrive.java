@@ -2,6 +2,7 @@ package Java.Semester2.Chapter11;
 
 import Java.Semester2.Chapter11.TipTaxTotal.TipTaxTotalScene;
 import Java.Semester2.Chapter11.Translator.TranslatorScene;
+import Java.Semester2.Chapter11.NameFormatter.NameFormatterScene;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -11,9 +12,9 @@ public class MainDrive extends Application {
 
     public void start(Stage currentStage) {
 
-        TipTaxTotalScene menuRef = new TipTaxTotalScene();
+        NameFormatterScene menuRef = new NameFormatterScene();
 
-        currentStage.setScene(menuRef.getTipTaxTotalScene());
+        currentStage.setScene(menuRef.getNameFormatterScene());
         currentStage.setTitle("Chapter-11");
         currentStage.show();
 

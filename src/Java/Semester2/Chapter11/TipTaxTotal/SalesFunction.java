@@ -22,7 +22,7 @@ public class SalesFunction {
         this.price = price;
 
     }
-    
+        
     private String object;
     private float price;
     private int amount = 2;
@@ -32,7 +32,7 @@ public class SalesFunction {
 
     public float getTotal() { return total; }
     
-    public VBox setupNewWord() { 
+    public VBox setupNewObject() { 
         
         total = price * amount;
 
@@ -60,10 +60,10 @@ public class SalesFunction {
         hbox.setStyle("-fx-background-color: #7f80a0;");
         hbox.setAlignment(Pos.CENTER_LEFT);
         hbox.setEffect(new DropShadow(5, Color.BLACK));
-        
-        vbox.setPadding(new Insets(5,0,0,0));
         hbox.setMinWidth(345);
         hbox.setMaxWidth(345);
+        
+        vbox.setPadding(new Insets(5,0,0,0));
         vbox.setAlignment(Pos.CENTER);
         vbox.setMinWidth(355.2);
         vbox.setMaxWidth(355.2);

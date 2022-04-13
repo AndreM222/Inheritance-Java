@@ -35,7 +35,7 @@ public class SalesList {
         
         VBox[] vbox = new VBox[1];
 
-        vbox[0] = getArrList().get(getArrList().size()-1).setupNewWord();
+        vbox[0] = getArrList().get(getArrList().size()-1).setupNewObject();
 
         setTotalAddition(totalAddition + arrList.get(getArrList().size()-1).getTotal());
         setTaxCalculation(totalAddition * ((float)taxAmount / 100));
