@@ -15,8 +15,6 @@ public class NameList {
     public ArrayList<NameFunction> getArrList() { return arrList; }
     public String[] getNameTitles() { return nameTitles; }
 
-    // -------------------- Setters ----------------------
-
     // -------------------- Create ----------------------
 
     public VBox[] addName(int i) {

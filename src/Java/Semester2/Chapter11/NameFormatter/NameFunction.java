@@ -46,7 +46,7 @@ public class NameFunction {
 
         // -------------------- Setup --------------------
 
-        nameTxt.setFont(new Font("Comic Sans MS", 22));
+        nameTxt.setFont(new Font("Comic Sans MS", 30));
         nameTxt.setTextFill(Color.WHITE);
         
         hbox.setStyle("-fx-background-color: #7f80a0;");

@@ -16,8 +16,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -41,7 +39,6 @@ public class NameFormatterScene {
         rectangleBKGD.setArcHeight(20);
         rectangleBKGD.setArcWidth(20);
 
-        VBox.setVgrow(listScroll, Priority.ALWAYS);
         VBox.setVgrow(nameListRef.getListBox(), Priority.ALWAYS);
         title.setAlignment(Pos.CENTER);
         vbox.setAlignment(Pos.CENTER);
@@ -58,18 +55,16 @@ public class NameFormatterScene {
         firstNameBox.setPromptText("First Name");
         middleNameBox.setStyle("-fx-background-color: #6668b0;");
         middleNameBox.setMinWidth(100);
-        middleNameBox.setPromptText("First Name");
+        middleNameBox.setPromptText("Middle Name");
         lastNameBox.setStyle("-fx-background-color: #6668b0;");
         lastNameBox.setMinWidth(100);
-        lastNameBox.setPromptText("First Name");
+        lastNameBox.setPromptText("Last Name");
         formatBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #7f80a0;");
         clearBT.setStyle("-fx-background-radius: 5em; -fx-background-color: #7f80a0;");
 
         nameListRef.getListBox().setStyle("-fx-background-color: #2e3347;");
-        listScroll.setStyle("-fx-background: #191c26; -fx-background-color: black;");
-        listScroll.setFitToHeight(true);
-        listScroll.setMaxSize(605,235);
-        listScroll.setHbarPolicy(ScrollBarPolicy.NEVER);
+        nameListRef.getListBox().setStyle("-fx-background-color: #191c26; -fx-border-color: black;");
+        nameListRef.getListBox().setMaxSize(605,335);
 
         nameFormatterIcon.setFitHeight(50);
         nameFormatterIcon.setFitWidth(50);
@@ -91,14 +86,13 @@ public class NameFormatterScene {
     private Button formatBT = new Button("Format");
     private Button clearBT = new Button("Clear All");
     private Rectangle rectangleBKGD = new Rectangle(650, 500);
-    private ImageView nameFormatterIcon = new ImageView("Java/Semester2/Chapter11/CH11Icons/TipTaxTotalTitle.png");
+    private ImageView nameFormatterIcon = new ImageView("Java/Semester2/Chapter11/CH11Icons/NameFormatterTitle.png");
     
     private BorderPane root = new BorderPane();
     private HBox title = new HBox(10, nameFormatterIcon, welcomeMSG);
-    private ScrollPane listScroll = new ScrollPane(nameListRef.getListBox());
     private Scene nameFormatterScene = new Scene(root, 1000, 600);
     private HBox formatNameBox = new HBox(5, formatBT, titleType, firstNameBox, middleNameBox, lastNameBox);
-    private VBox vbox = new VBox(10, title, formatNameBox, listScroll, clearBT);
+    private VBox vbox = new VBox(10, title, formatNameBox, nameListRef.getListBox(), clearBT);
     private Group window = new Group(rectangleBKGD,vbox);
 
     // -------------------- Getters ----------------------

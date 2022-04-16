@@ -25,7 +25,6 @@ import Java.Semester2.Chapter11.SelectionBT;
 
 public class TipTaxTotalScene {
 
-
     // -------------------- Init ----------------------
 
     public TipTaxTotalScene() {

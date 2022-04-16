@@ -13,8 +13,6 @@ import javafx.scene.text.Font;
 
 public class SalesFunction {
     
-    // -------------------- New Words ----------------------
-
     SalesFunction(String object, int amount, float price) {
 
         this.object = object;
@@ -25,7 +23,7 @@ public class SalesFunction {
         
     private String object;
     private float price;
-    private int amount = 2;
+    private int amount;
     private float total;
 
     // -------------------- Getters ----------------------

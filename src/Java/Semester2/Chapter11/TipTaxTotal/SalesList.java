@@ -23,12 +23,6 @@ public class SalesList {
     public int getTaxAmount() { return taxAmount; }
     public float getTotalAddition() { return totalAddition; }
 
-    // -------------------- Setters ----------------------
-
-    public void setTaxCalculation(float f) { this.taxCalculation = f; }
-    public void setTotalAddition(float totalAddition) { this.totalAddition = totalAddition; }
-    public void setFinalPrice(float finalPrice) { this.finalPrice = finalPrice; }
-
     // -------------------- Create ----------------------
 
     public VBox[] addList() {
@@ -37,9 +31,9 @@ public class SalesList {
 
         vbox[0] = getArrList().get(getArrList().size()-1).setupNewObject();
 
-        setTotalAddition(totalAddition + arrList.get(getArrList().size()-1).getTotal());
-        setTaxCalculation(totalAddition * ((float)taxAmount / 100));
-        setFinalPrice(totalAddition + taxCalculation + tip);
+        totalAddition = totalAddition + arrList.get(getArrList().size()-1).getTotal();
+        taxCalculation = totalAddition * ((float)taxAmount / 100);
+        finalPrice = totalAddition + taxCalculation + tip;
 
         return vbox;
 
@@ -49,9 +43,9 @@ public class SalesList {
         
         getListBox().getChildren().clear();;
         getArrList().clear();
-        setTotalAddition(0);
-        setTaxCalculation(0);
-        setFinalPrice(totalAddition + taxCalculation + tip);
+        totalAddition = 0;
+        taxCalculation = 0;
+        finalPrice = totalAddition + taxCalculation + tip;
 
     }
 
