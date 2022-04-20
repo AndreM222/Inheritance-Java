@@ -14,8 +14,9 @@ public class MenuScene {
 
     // -------------------- Init ----------------------
 
-    public MenuScene() {
+    public MenuScene(SelectionBT selectionBT) {
 
+        setSelectionBT(selectionBT);
         iconCenter.setFitHeight(500);
         iconCenter.setFitWidth(500);
         root.setTop(selectionRef.getMenuBox());
@@ -29,7 +30,7 @@ public class MenuScene {
 
     // -------------------- Variables ----------------------
 
-    private SelectionBT selectionRef = new SelectionBT();
+    private SelectionBT selectionRef;
     private Label welcomeMSG = new Label("Welcome to Chapter 11");
     private BorderPane root = new BorderPane();
     private Scene mainScene = new Scene(root, 1000, 600);
@@ -40,5 +41,8 @@ public class MenuScene {
 
     public Scene getMainScene() { return mainScene; }
 
+    // -------------------- Setters ----------------------
+
+    public void setSelectionBT(SelectionBT selectionRef) { this.selectionRef = selectionRef; }
 
 }

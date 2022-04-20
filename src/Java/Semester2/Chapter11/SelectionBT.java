@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.shape.Rectangle;
@@ -45,8 +46,7 @@ public class SelectionBT {
         
         hoverRectangle.setArcHeight(10.0d);
         hoverRectangle.setArcWidth(10.0d);
-        hoverRectangle.setTranslateX(locateBT);
-        hoverRectangle.setVisible(false);
+        hoverRectangle.setTranslateX(locationBT);
         hoverRectangle.setEffect(shadowDrop);
         hoveringBTFX();
         homeBT.setDisable(true);
@@ -55,16 +55,17 @@ public class SelectionBT {
     
     // ---------------------- Variables ----------------------
 
-    private DropShadow shadowDrop = new DropShadow(20, Color.BLUEVIOLET);
-    private Rectangle hoverRectangle = new Rectangle(30, 10);
+    private DropShadow shadowDrop = new DropShadow(20, Color.WHITE);
+    private Rectangle hoverRectangle = new Rectangle(30, 10, Color.WHITE);
     private Button homeBT = new Button();
     private Button translatorBT = new Button();
     private Button tipTaxtTotalBT = new Button();
     private Button propertyTaxBT = new Button();
     private Button nameFormatterBT = new Button();
     private Button headsOrTailsBT = new Button();
-    private double locateBT = homeBT.getLayoutX() + (homeBT.getWidth()/4);
-    public Button oldBT = homeBT;
+    private Button oldBT = homeBT;
+    private double locationBT = 335;
+    private double hoverLocation;
     private HBox menuSelection = new HBox(
         
         homeBT,
@@ -205,77 +206,16 @@ public class SelectionBT {
 
         });
 
-        // -------------------- OnPressed ----------------------
-
-        homeBT.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            
-            public void handle(MouseEvent t) {
-
-                onClickBT(homeBT);
-                
-            }
-
-        });
-
-        translatorBT.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            
-            public void handle(MouseEvent t) {
-
-                onClickBT(translatorBT);
-                
-            }
-
-        });
-
-        tipTaxtTotalBT.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            
-            public void handle(MouseEvent t) {
-
-                onClickBT(tipTaxtTotalBT);
-                
-            }
-
-        });
-
-        propertyTaxBT.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            
-            public void handle(MouseEvent t) {
-
-                onClickBT(propertyTaxBT);
-                
-            }
-
-        });
-
-        nameFormatterBT.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            
-            public void handle(MouseEvent t) {
-
-                onClickBT(nameFormatterBT);
-                
-            }
-
-        });
-   
-        headsOrTailsBT.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            
-            public void handle(MouseEvent t) {
-
-                onClickBT(headsOrTailsBT);
-                
-            }
-
-        });
-
     }
 
     public void onHoverBTFX (Button refBT, Color color) {
 
-        hoverRectangle.setTranslateX(refBT.getLayoutX() + (refBT.getWidth()/4));
-        hoverRectangle.setVisible(true);
+        hoverLocation = refBT.getLayoutX() + (refBT.getWidth()/4);
         refBT.setStyle("-fx-background-color: #282942;");
         shadowDrop.setColor(color);
         hoverRectangle.setFill(color);
+        hoverAnim.start();
+        unHoverAnim.stop();
         
 
 
@@ -283,8 +223,11 @@ public class SelectionBT {
 
     public void unHoverBTFX (Button refBT) {
 
+        shadowDrop.setColor(Color.WHITE);
+        hoverRectangle.setFill(Color.WHITE);
         refBT.setStyle("-fx-background-color: transparent;");
-        hoverRectangle.setVisible(false);
+        unHoverAnim.start();
+        hoverAnim.stop();
 
     }
 
@@ -293,6 +236,8 @@ public class SelectionBT {
         oldBT.setDisable(false);
         shadowDrop.setColor(Color.WHITE);
         hoverRectangle.setFill(Color.WHITE);
+        locationBT = refBT.getLayoutX() + (refBT.getWidth()/4);
+        hoverRectangle.setTranslateX(locationBT);
         refBT.setDisable(true);
         oldBT = refBT;
 
@@ -301,5 +246,52 @@ public class SelectionBT {
     // -------------------- Getters ----------------------
 
     public VBox getMenuBox() { return menuBox; }
+
+    public Button getHomeBT() { return homeBT; }
+    public Button getTranslatorBT() { return translatorBT; }
+    public Button getTipTaxtTotalBT() { return tipTaxtTotalBT; }
+    public Button getPropertyTaxBT() { return propertyTaxBT; }
+    public Button getNameFormatterBT() { return nameFormatterBT; }
+    public Button getHeadsOrTailsBT() { return headsOrTailsBT; }
+
+    AnimationTimer unHoverAnim = new AnimationTimer() {
+
+        int changeRate = 10;
+            
+        public void handle(long now) {
+
+            if((int)locationBT > (int)hoverRectangle.getTranslateX()) { 
+                
+                hoverRectangle.setTranslateX((int)hoverRectangle.getTranslateX() + changeRate);
+            
+            } else if((int)locationBT < (int)hoverRectangle.getTranslateX()) {
+
+                hoverRectangle.setTranslateX((int)hoverRectangle.getTranslateX() - changeRate);
+
+            } else { unHoverAnim.stop(); }
+
+        }
+
+    };
+
+    AnimationTimer hoverAnim = new AnimationTimer() {
+
+        int changeRate = 10;
+            
+        public void handle(long now) {
+
+            if((int)hoverLocation > (int)hoverRectangle.getTranslateX()) { 
+                
+                hoverRectangle.setTranslateX((int)hoverRectangle.getTranslateX() + changeRate);
+            
+            } else if((int)hoverLocation < (int)hoverRectangle.getTranslateX()) {
+
+                hoverRectangle.setTranslateX((int)hoverRectangle.getTranslateX() - changeRate);
+
+            } else { hoverAnim.stop(); }
+
+        }
+
+    };
 
 }

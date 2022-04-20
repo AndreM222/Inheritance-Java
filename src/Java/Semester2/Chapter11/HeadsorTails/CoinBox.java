@@ -30,6 +30,7 @@ public class CoinBox {
     private Boolean playingAnim = false;
     private Label actionMSG = new Label("----- Choose Side -----");
     private Button continueBT = new Button();
+    private String loadingString = "";
 
     // -------------------- Getters ----------------------
 
@@ -46,8 +47,16 @@ public class CoinBox {
             
             if(winner != "Middle") { continueBT.setText("You Win (Press To Continue)"); }
             else { continueBT.setText("It Fell On A Crack What A Luck! You Win  (Press To Continue)"); }
+
+            continueBT.setStyle("-fx-background-color: green; -fx-font-size: 20;");
         
-        } else {continueBT.setText("You Loose (Press To Continue)");}
+        } else { 
+            
+            continueBT.setText("You Loose (Press To Continue)"); 
+        
+            continueBT.setStyle("-fx-background-color: red; -fx-font-size: 20;");
+        
+        }
 
         actionMSG.setText("----- " + winner + " Win! -----");
     
@@ -87,6 +96,8 @@ public class CoinBox {
 
         } else { coinMesh.setRotate(0); }
 
+        if(playingAnim == false) { actionMSG.setText("----- Choose Side -----"); }
+
     }
 
     public void coinIdleAnimation() {
@@ -107,20 +118,20 @@ public class CoinBox {
 
     public void runGamble(String chosen) {
 
-        int randomWinner = (int)(Math.random() * 10);
-        actionMSG.setText("----- ?-?-? -----");
+        actionMSG.setText("-----  -----");
         playingAnim = true;
 
         AnimationTimer coinAnim = new AnimationTimer() {
 
             int init = 0;
             String winner;
-
+            int randomWinner = (int)(Math.random() * 10);
+            
             public void handle(long now) {
 
                 init++;
 
-                coinMesh.rotateProperty().set(coinMesh.getRotate() + 7);
+                coinMesh.rotateProperty().set(coinMesh.getRotate() + 10);
 
                 if(init == 200) {
 
@@ -138,10 +149,11 @@ public class CoinBox {
 
                     } else { coinMesh.setRotate(90); winner = "Middle";}
 
+                    loadingString = "";
                     setResult(winner, chosen);
                     continueBT.setVisible(true);
 
-                }
+                } else { setLoadingText(init); }
 
             }
 
@@ -150,6 +162,30 @@ public class CoinBox {
         };
 
         coinAnim.start();
+
+    }
+
+    public void setLoadingText(int init) {
+
+        char loadingCharOne = '?';
+        char loadingCharTwo = '-';
+
+        if (init % 15 == 0) {
+
+            if(loadingString.length() < 5) {
+
+                if(loadingString.length() < 1 || loadingString.charAt(loadingString.length() - 1) == loadingCharTwo){
+                    
+                    loadingString = loadingString + loadingCharOne;
+                
+                } else { loadingString = loadingString + loadingCharTwo; }
+
+                actionMSG.setText("----- " + loadingString + " -----");
+
+            } else { loadingString = ""; }
+
+            
+        }
 
     }
 
