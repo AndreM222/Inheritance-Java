@@ -145,11 +145,11 @@ public class TranslatorScene {
 
                 if( searchBox.getCharacters().length() > 0) {
 
-                    for(int i = 0; i < wordListRef.arrList.length && !foundWord; i++) {
+                    for(int i = 0; i < wordListRef.getArrList().length && !foundWord; i++) {
 
-                        if(wordListRef.arrList[i].getLatinWord().equals(searchBox.getText())) {
+                        if(wordListRef.getArrList()[i].getLatinWord().equals(searchBox.getText())) {
 
-                            listBox.getChildren().addAll(wordListRef.arrList[i].setupNewWord());
+                            listBox.getChildren().addAll(wordListRef.getArrList()[i].setupNewWord());
                             foundWord = true;
 
                         }

@@ -4,6 +4,8 @@ import javafx.scene.layout.VBox;
 
 public class WordList {
 
+    // -------------------- Init --------------------
+
     WordList() {
 
         arrList[0] = new WordFunction("sinister", "left", "Left direction");
@@ -24,8 +26,16 @@ public class WordList {
         arrList[9] = new WordFunction("telum", "weapon", "A thing designed or used for inflicting bodily harm or physical damage");
 
     }
+
+    // -------------------- Properties --------------------
     
-    public WordFunction[] arrList = new WordFunction[10];
+    private WordFunction[] arrList = new WordFunction[10];
+
+    // -------------------- Getters --------------------
+
+    public WordFunction[] getArrList() { return arrList; }
+
+    // -------------------- Functions --------------------
 
     public VBox[] generalList() {
         

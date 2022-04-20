@@ -5,10 +5,13 @@ import java.util.ArrayList;
 
 public class ShiftSupervisor extends Employee {
 
+  // ----------------------- Properties -----------------------
 
   Scanner inputSC = new Scanner(System.in);
   private int leadersCounter;
-  public ArrayList<TeamLeader> leaderArr = new ArrayList<TeamLeader>();
+  private ArrayList<TeamLeader> leaderArr = new ArrayList<TeamLeader>();
+
+  // ----------------------- Functions -----------------------
 
   public void createLeaderList(String area, String firstNumbers) {
 
@@ -96,5 +99,9 @@ public class ShiftSupervisor extends Employee {
     }
 
   }
+
+  // ----------------------- Getters -----------------------
+
+  public ArrayList<TeamLeader> getLeaderArr() { return leaderArr; }
 
 }

@@ -13,13 +13,19 @@ import javafx.stage.Stage;
 
 public class MainDrive extends Application {
 
+    // -------------------- Properties --------------------
+
+    private SelectionBT selectionRef = new SelectionBT();
+    private TranslatorScene translatorRef = new TranslatorScene(selectionRef);
+    private TipTaxTotalScene tipTaxTotalRef = new TipTaxTotalScene(selectionRef);
+    private PropertyTaxScene propertyTaxRef = new PropertyTaxScene(selectionRef);
+    private NameFormatterScene nameFormatterRef = new NameFormatterScene(selectionRef);
+    private HeadsorTailsScene headsOrTailsRef = new HeadsorTailsScene(selectionRef);
+    private MenuScene menuRef = new MenuScene(selectionRef);
+
     public static void main(String[] args){ launch(args); }
 
     public void start(Stage currentStage) {
-
-        SelectionBT selectionRef = new SelectionBT();
-        
-        MenuScene menuRef = new MenuScene(selectionRef);
 
         menuRef.setSelectionBT(selectionRef);
         currentStage.setScene(menuRef.getMainScene());
@@ -32,7 +38,7 @@ public class MainDrive extends Application {
             
             public void handle(MouseEvent t) {
 
-                MenuScene menuRef = new MenuScene(selectionRef);
+                menuRef = new MenuScene(selectionRef);
                 selectionRef.onClickBT(selectionRef.getHomeBT());
                 currentStage.setScene(menuRef.getMainScene());
                 
@@ -40,11 +46,13 @@ public class MainDrive extends Application {
 
         });
 
+        // -------------------- SceneButtons --------------------
+
         selectionRef.getTranslatorBT().setOnMouseClicked(new EventHandler<MouseEvent>() {
             
             public void handle(MouseEvent t) {
 
-                TranslatorScene translatorRef = new TranslatorScene(selectionRef);
+                translatorRef = new TranslatorScene(selectionRef);
                 selectionRef.onClickBT(selectionRef.getTranslatorBT());
                 currentStage.setScene(translatorRef.getTranslatorScene());
                 
@@ -56,7 +64,7 @@ public class MainDrive extends Application {
             
             public void handle(MouseEvent t) {
 
-                TipTaxTotalScene tipTaxTotalRef = new TipTaxTotalScene(selectionRef);
+                tipTaxTotalRef = new TipTaxTotalScene(selectionRef);
                 selectionRef.onClickBT(selectionRef.getTipTaxtTotalBT());
                 currentStage.setScene(tipTaxTotalRef.getTipTaxTotalScene());
                 
@@ -68,7 +76,7 @@ public class MainDrive extends Application {
             
             public void handle(MouseEvent t) {
 
-                PropertyTaxScene propertyTaxRef = new PropertyTaxScene(selectionRef);
+                propertyTaxRef = new PropertyTaxScene(selectionRef);
                 selectionRef.onClickBT(selectionRef.getPropertyTaxBT());
                 currentStage.setScene(propertyTaxRef.getPropertyTaxScene());
                 
@@ -80,7 +88,7 @@ public class MainDrive extends Application {
             
             public void handle(MouseEvent t) {
 
-                NameFormatterScene nameFormatterRef = new NameFormatterScene(selectionRef);
+                nameFormatterRef = new NameFormatterScene(selectionRef);
                 selectionRef.onClickBT(selectionRef.getNameFormatterBT());
                 currentStage.setScene(nameFormatterRef.getNameFormatterScene());
                 
@@ -92,7 +100,7 @@ public class MainDrive extends Application {
             
             public void handle(MouseEvent t) {
 
-                HeadsorTailsScene headsOrTailsRef = new HeadsorTailsScene(selectionRef);
+                headsOrTailsRef = new HeadsorTailsScene(selectionRef);
                 selectionRef.onClickBT(selectionRef.getHeadsOrTailsBT());
                 currentStage.setScene(headsOrTailsRef.getHeadsOrTailsScene());
                 

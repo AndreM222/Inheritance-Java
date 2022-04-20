@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import javafx.scene.layout.VBox;
 
 public class SalesList {
+
+    // -------------------- Properties --------------------
     
     private VBox listBox = new VBox();
     private ArrayList<SalesFunction> arrList = new ArrayList<SalesFunction>();
@@ -23,7 +25,7 @@ public class SalesList {
     public int getTaxAmount() { return taxAmount; }
     public float getTotalAddition() { return totalAddition; }
 
-    // -------------------- Create ----------------------
+    // -------------------- Functions ----------------------
 
     public VBox[] addList() {
         

@@ -12,6 +12,8 @@ import javafx.scene.transform.Rotate;
 
 public class CoinBox {
     
+    // -------------------- Init ----------------------
+
     CoinBox() {
 
         coinMesh.getTransforms().add(new Rotate(90, new Point3D(1, 0, 0)));
@@ -21,6 +23,8 @@ public class CoinBox {
         coinMesh.setRotationAxis(Rotate.Y_AXIS);
 
     }
+
+    // -------------------- Properties ----------------------
 
     private Cylinder coinMesh = new Cylinder(80, 30, 80);
     private PhongMaterial material = new PhongMaterial();
@@ -61,6 +65,8 @@ public class CoinBox {
         actionMSG.setText("----- " + winner + " Win! -----");
     
     }
+
+    // -------------------- Actions ----------------------
 
     public void HoverFX(String type) {
 
@@ -131,7 +137,7 @@ public class CoinBox {
 
                 init++;
 
-                coinMesh.rotateProperty().set(coinMesh.getRotate() + 10);
+                coinMesh.rotateProperty().set(coinMesh.getRotate() + 20);
 
                 if(init == 200) {
 

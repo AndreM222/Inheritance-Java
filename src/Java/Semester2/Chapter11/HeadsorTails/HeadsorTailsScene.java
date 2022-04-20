@@ -74,7 +74,7 @@ public class HeadsorTailsScene {
 
     }
     
-    // -------------------- Variables ----------------------
+    // -------------------- Properties ----------------------
 
     private SelectionBT selectionRef;
     private CoinBox coinBoxRef = new CoinBox();

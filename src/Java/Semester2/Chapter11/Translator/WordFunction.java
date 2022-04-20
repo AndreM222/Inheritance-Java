@@ -13,7 +13,7 @@ import javafx.scene.text.Font;
 
 public class WordFunction {
 
-    // -------------------- New Words ----------------------
+    // -------------------- Init ----------------------
 
     WordFunction(String latinWord, String englishWord, String description) {
 
@@ -23,15 +23,21 @@ public class WordFunction {
 
     }
     
+    // -------------------- Properties --------------------
+
     private String latinWord;
     private String englishWord;
     private String description;
 
+    // -------------------- Getters --------------------
+
     public String getLatinWord() { return latinWord; }
+
+    // -------------------- Functions --------------------
 
     public VBox setupNewWord() { 
 
-        // -------------------- Create ----------------------
+        // -------------------- Properties ----------------------
 
         Label latTXT = new Label(" Latin: " + latinWord);
         Rectangle latRectangle = new Rectangle(160, 25);

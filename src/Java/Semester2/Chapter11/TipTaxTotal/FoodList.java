@@ -1,6 +1,8 @@
 package Java.Semester2.Chapter11.TipTaxTotal;
 
 public class FoodList {
+
+    // -------------------- Init --------------------
     
     FoodList() {
 
@@ -17,11 +19,17 @@ public class FoodList {
 
     }
     
+    // -------------------- Properties --------------------
+
     private String[] foodList = new String[10];
     private Float[] priceList = new Float[10];
 
+    // -------------------- Getters --------------------
+
     public String[] getFood() { return foodList; }
     public Float getPrice(int i) { return priceList[i]; }
+
+    // -------------------- Setters --------------------
     
     public void setFoodList(int i, String food, Float price) {
 

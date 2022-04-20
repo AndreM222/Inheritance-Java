@@ -84,7 +84,7 @@ public class TipTaxTotalScene {
 
     }
     
-    // -------------------- Variables ----------------------
+    // -------------------- Properties ----------------------
 
     private SelectionBT selectionRef;
     private SalesList salesListRef = new SalesList();

@@ -14,7 +14,7 @@ import javafx.scene.shape.Rectangle;
 
 public class SelectionBT {
     
-    // ---------------------- Customize ----------------------
+    // ---------------------- Init ----------------------
     
     public SelectionBT() {
         
@@ -53,7 +53,7 @@ public class SelectionBT {
         
     }
     
-    // ---------------------- Variables ----------------------
+    // ---------------------- Properties ----------------------
 
     private DropShadow shadowDrop = new DropShadow(20, Color.WHITE);
     private Rectangle hoverRectangle = new Rectangle(30, 10, Color.WHITE);
@@ -208,6 +208,8 @@ public class SelectionBT {
 
     }
 
+    // -------------------- Buttons --------------------
+
     public void onHoverBTFX (Button refBT, Color color) {
 
         hoverLocation = refBT.getLayoutX() + (refBT.getWidth()/4);
@@ -254,9 +256,11 @@ public class SelectionBT {
     public Button getNameFormatterBT() { return nameFormatterBT; }
     public Button getHeadsOrTailsBT() { return headsOrTailsBT; }
 
+    // -------------------- Animations --------------------
+
     AnimationTimer unHoverAnim = new AnimationTimer() {
 
-        int changeRate = 10;
+        int changeRate = 20;
             
         public void handle(long now) {
 
@@ -276,7 +280,7 @@ public class SelectionBT {
 
     AnimationTimer hoverAnim = new AnimationTimer() {
 
-        int changeRate = 10;
+        int changeRate = 20;
             
         public void handle(long now) {
 

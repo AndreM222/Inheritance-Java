@@ -11,6 +11,8 @@ import javafx.scene.text.Font;
 
 public class NameFunction {
 
+    // -------------------- Init ----------------------
+
     NameFunction(String firstName, String middleName, String lastName, String title) {
 
         Format1 = title + firstName + " " + middleName + " " + lastName;
@@ -39,6 +41,8 @@ public class NameFunction {
     private String[] txtFormats = new String[6];
 
     public VBox setupNewName(int i) {
+        
+        // -------------------- Properties --------------------
 
         Label nameTxt = new Label(txtFormats[i]);
         HBox hbox = new HBox(nameTxt);

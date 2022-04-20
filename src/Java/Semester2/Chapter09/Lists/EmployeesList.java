@@ -10,9 +10,14 @@ import java.util.ArrayList;
 
 public class EmployeesList {
 
+  // ----------------------- Properties -----------------------
+
   Scanner inputSC = new Scanner(System.in);
   private int supervisorsCount;
-  public ArrayList<ShiftSupervisor> supervisorArr = new ArrayList<ShiftSupervisor>();
+  private ArrayList<ShiftSupervisor> supervisorArr = new ArrayList<ShiftSupervisor>();
+
+  // ----------------------- Functions -----------------------
+
   public boolean createEmployeesList() {
 
     do {
@@ -157,9 +162,9 @@ public class EmployeesList {
 
           if (position == 1 && foundEmployee == false && searchFail == false) {
 
-            for (currentLeader = 0; currentLeader < uSupervisorRef.leaderArr.size(); currentLeader++) {
+            for (currentLeader = 0; currentLeader < uSupervisorRef.getLeaderArr().size(); currentLeader++) {
 
-              TeamLeader leaderRef = uSupervisorRef.leaderArr.get(currentLeader);
+              TeamLeader leaderRef = uSupervisorRef.getLeaderArr().get(currentLeader);
               Boolean leaderChildFound = employeeSID.charAt(2) == leaderRef.getIDNumber().charAt(2)
                   && employeeSID.charAt(3) == leaderRef.getIDNumber().charAt(3);
 
@@ -175,7 +180,7 @@ public class EmployeesList {
                 uLeaderRef = leaderRef;
                 position++;
 
-              } else if (currentLeader == uSupervisorRef.leaderArr.size()) {
+              } else if (currentLeader == uSupervisorRef.getLeaderArr().size()) {
 
                 System.out.printf("Not Found the employee test: (%s)%n", employeeSID);
                 searchFail = true;
@@ -192,9 +197,9 @@ public class EmployeesList {
 
           if (position == 2 && foundEmployee == false && searchFail == false) {
 
-            for (currentWorker = 0; currentWorker < uLeaderRef.workerArr.size(); currentWorker++) {
+            for (currentWorker = 0; currentWorker < uLeaderRef.getWorkerArr().size(); currentWorker++) {
 
-              ProductionWorker workerRef = uLeaderRef.workerArr.get(currentWorker);
+              ProductionWorker workerRef = uLeaderRef.getWorkerArr().get(currentWorker);
 
               // ------------------Look for employee end
 
@@ -203,7 +208,7 @@ public class EmployeesList {
                 System.out.println(workerRef);
                 foundEmployee = true;
 
-              } else if (currentWorker == uLeaderRef.workerArr.size()) {
+              } else if (currentWorker == uLeaderRef.getWorkerArr().size()) {
 
                 System.out.printf("Not Found the employee: (%s)%n", employeeSID);
                 searchFail = true;

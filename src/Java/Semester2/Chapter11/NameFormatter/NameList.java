@@ -5,6 +5,8 @@ import javafx.scene.layout.VBox;
 
 public class NameList {
     
+    // -------------------- Propeties --------------------
+    
     private VBox listBox = new VBox();
     private ArrayList<NameFunction> arrList = new ArrayList<NameFunction>();
     private String[] nameTitles = {"Mr. ", "Mrs. ", "Ms. ", "Dr. ", "Jr. ", "Prof. "};
@@ -15,7 +17,7 @@ public class NameList {
     public ArrayList<NameFunction> getArrList() { return arrList; }
     public String[] getNameTitles() { return nameTitles; }
 
-    // -------------------- Create ----------------------
+    // -------------------- Functions ----------------------
 
     public VBox[] addName(int i) {
 

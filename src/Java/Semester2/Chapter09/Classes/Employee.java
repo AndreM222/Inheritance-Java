@@ -1,6 +1,8 @@
 package Java.Semester2.Chapter09.Classes;
 
 public class Employee {
+
+    // ----------------------- Properties -----------------------
     
     private String idNumber;
     private String name;
@@ -8,7 +10,7 @@ public class Employee {
     private String area;
     private String type;
     
-    // ------------------------------- Setters ---------------------------
+    // ----------------------- Setters -----------------------
     
     public void setIDNumber(String idNumber) { this.idNumber = idNumber; }
     
@@ -20,7 +22,7 @@ public class Employee {
 
     public void setType(String type) { this.type = type; }
     
-    // ------------------------------- Getters ---------------------------
+    // ----------------------- Getters -----------------------
     
     public String getIDNumber() { return idNumber; }
     
@@ -32,7 +34,7 @@ public class Employee {
 
     public String getType() { return type; }
     
-    // ------------------------------- Printing ---------------------------
+    // ----------------------- Printing -----------------------
     
     public String toString() {
 

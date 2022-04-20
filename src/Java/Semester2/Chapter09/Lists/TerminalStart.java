@@ -4,11 +4,15 @@ import java.util.Scanner;
 
 public class TerminalStart {
 
+    // ----------------------- Properties -----------------------
+
     EmployeesList employeesList = new EmployeesList();
     String[] commandList = new String[6];
     String[] description = new String[6];
     Scanner inputSC = new Scanner(System.in);
     String inputCommand;
+
+    // ----------------------- Init -----------------------
 
     public TerminalStart() {
 
@@ -22,6 +26,8 @@ public class TerminalStart {
         commandList[5] = "clear"; description[5] = "Clear terminal";
 
     }
+
+    // ----------------------- Functions -----------------------
 
     public void startTerminal() {
 

@@ -5,10 +5,14 @@ import java.util.ArrayList;
 
 public class TeamLeader extends Employee {
 
+  // ----------------------- Properties -----------------------
+
   Scanner inputSC = new Scanner(System.in);
   private int workersCounter;
   private String idNumber, name;
-  public ArrayList<ProductionWorker> workerArr = new ArrayList<ProductionWorker>();
+  private ArrayList<ProductionWorker> workerArr = new ArrayList<ProductionWorker>();
+
+  // ----------------------- Functions -----------------------
 
   public void createWorkerList(String group, String area, String secundaryID) {
 
@@ -79,5 +83,9 @@ public class TeamLeader extends Employee {
     }
 
   }
+
+  // ----------------------- Getters -----------------------
+
+  public ArrayList<ProductionWorker> getWorkerArr() { return workerArr; }
 
 }

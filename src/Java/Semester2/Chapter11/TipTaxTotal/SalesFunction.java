@@ -12,6 +12,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
 public class SalesFunction {
+
+    // -------------------- Init --------------------
     
     SalesFunction(String object, int amount, float price) {
 
@@ -20,6 +22,8 @@ public class SalesFunction {
         this.price = price;
 
     }
+
+    // -------------------- Properties --------------------
         
     private String object;
     private float price;
@@ -29,12 +33,14 @@ public class SalesFunction {
     // -------------------- Getters ----------------------
 
     public float getTotal() { return total; }
+
+    // -------------------- Functions --------------------
     
     public VBox setupNewObject() { 
         
         total = price * amount;
 
-        // -------------------- Create ----------------------
+        // -------------------- Properties ----------------------
 
         Label objAmountXT = new Label(" " + object + " (" + amount + "x)");
         Rectangle objRectangle = new Rectangle(160, 25);

@@ -74,7 +74,7 @@ public class NameFormatterScene {
 
     }
 
-    // -------------------- Variables ----------------------
+    // -------------------- Properties ----------------------
 
     private SelectionBT selectionRef;
     private NameList nameListRef = new NameList();

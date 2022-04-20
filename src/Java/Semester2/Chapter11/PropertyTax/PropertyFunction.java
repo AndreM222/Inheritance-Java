@@ -14,6 +14,7 @@ import javafx.scene.text.Font;
 
 public class PropertyFunction {
     
+    // -------------------- Init --------------------
         
     PropertyFunction(String houseName, float price) {
 
@@ -33,6 +34,8 @@ public class PropertyFunction {
     // -------------------- Calculate ----------------------
 
     public VBox setupNewObject() { 
+
+        // -------------------- Properties --------------------
         
         Label houseNameTXT = new Label("( " + houseName + " )");
         HBox houseBox = new HBox(5, houseIcon, houseNameTXT);

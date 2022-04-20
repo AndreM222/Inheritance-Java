@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import javafx.scene.layout.VBox;
 
 public class PropertyInfo {
+
+    // -------------------- Properties --------------------
     
     private VBox listBox = new VBox();
     private ArrayList<PropertyFunction> arrList = new ArrayList<PropertyFunction>();
@@ -21,7 +23,7 @@ public class PropertyInfo {
     public float getAssessment() { return assessment; }
     public float getPropertyTax() { return propertyTax; }
 
-    // -------------------- Create ----------------------
+    // -------------------- Functions ----------------------
     
     public VBox[] addList() {
         
