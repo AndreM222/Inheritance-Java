@@ -25,9 +25,8 @@ public class NameFormatterScene {
     
     // -------------------- Init ----------------------
 
-    public NameFormatterScene(SelectionBT selectionBT) {
+    public NameFormatterScene(SelectionBT selectionRef) {
 
-        setSelectionBT(selectionBT);
         root.setTop(selectionRef.getMenuBox());
         root.setCenter(window);
         root.setStyle("-fx-background-color: #282a36;");
@@ -76,7 +75,6 @@ public class NameFormatterScene {
 
     // -------------------- Properties ----------------------
 
-    private SelectionBT selectionRef;
     private NameList nameListRef = new NameList();
 
     private ComboBox<String> titleType = new ComboBox<String>(FXCollections.observableArrayList(nameListRef.getNameTitles()));
@@ -100,10 +98,6 @@ public class NameFormatterScene {
 
     public Scene getNameFormatterScene() { return nameFormatterScene; }
     
-    // -------------------- Setters ----------------------
-
-    public void setSelectionBT(SelectionBT selectionRef) { this.selectionRef = selectionRef; }
-
     // -------------------- ButtonFX ----------------------
 
     public void hoveringBTFX() {

@@ -26,9 +26,8 @@ public class PropertyTaxScene {
 
     // -------------------- Init ----------------------
 
-    public PropertyTaxScene(SelectionBT selectionBT) {
+    public PropertyTaxScene(SelectionBT selectionRef) {
 
-        setSelectionBT(selectionBT);
         root.setTop(selectionRef.getMenuBox());
         root.setCenter(window);
         root.setStyle("-fx-background-color: #282a36;");
@@ -80,7 +79,6 @@ public class PropertyTaxScene {
     
     // -------------------- Variables ----------------------
 
-    private SelectionBT selectionRef;
     private PropertyInfo propertyInfoRef = new PropertyInfo();
 
     private DecimalFormat taxFormated = new DecimalFormat("0.00");
@@ -107,10 +105,6 @@ public class PropertyTaxScene {
     // -------------------- Getters ----------------------
 
     public Scene getPropertyTaxScene() { return propertyTaxScene; }
-
-    // -------------------- Setters ----------------------
-
-    public void setSelectionBT(SelectionBT selectionRef) { this.selectionRef = selectionRef; }
 
     // -------------------- ButtonFX ----------------------
 

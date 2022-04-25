@@ -26,9 +26,8 @@ public class TranslatorScene {
 
         // -------------------- Init ----------------------
 
-    public TranslatorScene(SelectionBT selectionBT) {
+    public TranslatorScene(SelectionBT selectionRef) {
 
-            setSelectionBT(selectionBT);
             root.setTop(selectionRef.getMenuBox());
             root.setCenter(window);
             root.setStyle("-fx-background-color: #282a36;");
@@ -67,7 +66,6 @@ public class TranslatorScene {
     
     // -------------------- Variables ----------------------
 
-    private SelectionBT selectionRef;
     private WordList wordListRef = new WordList();
 
     private TextField searchBox = new TextField();
@@ -89,10 +87,6 @@ public class TranslatorScene {
 
     public Scene getTranslatorScene() { return translatorScene; }
     
-    // -------------------- Setters ----------------------
-
-    public void setSelectionBT(SelectionBT selectionRef) { this.selectionRef = selectionRef; }
-
     // -------------------- ButtonFX ----------------------
 
     public void hoveringBTFX() {

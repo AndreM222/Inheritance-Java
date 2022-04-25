@@ -27,9 +27,8 @@ public class TipTaxTotalScene {
 
     // -------------------- Init ----------------------
 
-    public TipTaxTotalScene(SelectionBT selectionBT) {
+    public TipTaxTotalScene(SelectionBT selectionRef) {
 
-        setSelectionBT(selectionBT);
         root.setTop(selectionRef.getMenuBox());
         root.setCenter(window);
         root.setStyle("-fx-background-color: #282a36;");
@@ -86,7 +85,6 @@ public class TipTaxTotalScene {
     
     // -------------------- Properties ----------------------
 
-    private SelectionBT selectionRef;
     private SalesList salesListRef = new SalesList();
     private FoodList foodListRef = new FoodList();
     private Integer[] amountInt = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -117,10 +115,6 @@ public class TipTaxTotalScene {
     // -------------------- Getters ----------------------
 
     public Scene getTipTaxTotalScene() { return tipTaxTotalScene; }
-
-    // -------------------- Setters ----------------------
-
-    public void setSelectionBT(SelectionBT selectionRef) { this.selectionRef = selectionRef; }
 
     // -------------------- ButtonFX ----------------------
 

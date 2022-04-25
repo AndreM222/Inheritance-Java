@@ -24,9 +24,8 @@ public class HeadsorTailsScene {
 
     // -------------------- Init ----------------------
 
-    public HeadsorTailsScene(SelectionBT selectionBT) {
+    public HeadsorTailsScene(SelectionBT selectionRef) {
 
-        setSelectionBT(selectionBT);
         root.setTop(selectionRef.getMenuBox());
         root.setCenter(window);
         root.setStyle("-fx-background-color: #282a36;");
@@ -76,7 +75,6 @@ public class HeadsorTailsScene {
     
     // -------------------- Properties ----------------------
 
-    private SelectionBT selectionRef;
     private CoinBox coinBoxRef = new CoinBox();
 
     private Label welcomeMSG = new Label("Heads or Tails");
@@ -98,10 +96,6 @@ public class HeadsorTailsScene {
     // -------------------- Getters ----------------------
 
     public Scene getHeadsOrTailsScene() { return headOrTailsScene; }
-
-    // -------------------- Setters ----------------------
-
-    public void setSelectionBT(SelectionBT selectionRef) { this.selectionRef = selectionRef; }
 
     // -------------------- ButtonFX ----------------------
 

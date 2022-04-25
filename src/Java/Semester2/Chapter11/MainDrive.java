@@ -27,12 +27,11 @@ public class MainDrive extends Application {
 
     public void start(Stage currentStage) {
 
-        menuRef.setSelectionBT(selectionRef);
         currentStage.setScene(menuRef.getMainScene());
         currentStage.setTitle("Chapter-11");
         currentStage.show();
 
-        // -------------------- OnPressed ----------------------
+        // -------------------- SceneButtons --------------------
         
         selectionRef.getHomeBT().setOnMouseClicked(new EventHandler<MouseEvent>() {
             
@@ -41,12 +40,10 @@ public class MainDrive extends Application {
                 menuRef = new MenuScene(selectionRef);
                 selectionRef.onClickBT(selectionRef.getHomeBT());
                 currentStage.setScene(menuRef.getMainScene());
-                
+                    
             }
 
         });
-
-        // -------------------- SceneButtons --------------------
 
         selectionRef.getTranslatorBT().setOnMouseClicked(new EventHandler<MouseEvent>() {
             
