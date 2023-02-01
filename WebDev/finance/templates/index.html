@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <h1 style="color: #fff">Welcome, {{ user["username"] }}</h1>
+    <table class="table table-striped table-dracula">
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Name</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for stock in stocks %}
+            <form action="/" method="post">
+                <tr>
+                    <input type="hidden" name="symbol" value="{{ stock['symbol'] }}">
+                    <th scope="row">{{ stock["symbol"] }}</th>
+                    <td>{{ stock["name"] }}</td>
+                    <td>{{ stock["shares"] }}</td>
+                    <td>{{ stock["price"] | usd }}</td>
+                    <td>{{ stock["total"] | usd }}</td>
+                    <td>
+                        <ul class="fastbuy">
+                            <li><button value="add" name="submit" type="submit" class="btn btn-success bt">+</button></li>
+                            <li><button value="remove" name="submit" type="submit" class="btn btn-danger bt" style="margin-left: 5px">-</button></li>
+                        </ul>
+                    </td>
+                </tr>
+            </form>
+
+            {% endfor %}
+        </tbody>
+        <tinfo>
+            <tr>
+                <th scope="row">Cash</th>
+                <td></td> <td></td> <td></td>
+                <td>{{ user["cash"] | usd }}</td>
+            </tr>
+            <tr>
+                <th scope="row">TOTAL</th>
+                <td></td> <td></td> <td></td>
+                <td>{{ total | usd }}</td>
+            </tr>
+        </tinfo>
+    </table>
+{% endblock %}

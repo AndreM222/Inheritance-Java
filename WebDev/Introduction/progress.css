@@ -1,0 +1,112 @@
+section
+{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container-progress
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    width: 300px;
+}
+
+.circular-progress1
+{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background: conic-gradient(#7d2ae8 315deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    outline: 2px solid black;
+}
+
+.circular-progress2
+{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background: conic-gradient(#7d2ae8 180deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    outline: 2px solid black;
+}
+
+.circular-progress1::before
+{
+    content: "";
+    position: absolute;
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.circular-progress2::before
+{
+    content: "";
+    position: absolute;
+    height: 210px;
+    width: 210px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.skill-progress
+{
+    position: relative;
+    font-size: 50px;
+    font-weight: 600;
+    color: #7d2ae8
+}
+
+.skill-text
+{
+    font-size: 30px;
+    font-weight: 500;
+    color: #606060;
+    position: relative;
+}
+
+.container
+{
+    display: grid;
+    grid-template-columns: 1fr 0fr;
+    width: 950px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container2
+{
+    display: grid;
+    grid-template-columns: 0fr 1fr;
+    width: 950px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.progress
+{
+    outline: 2px solid black;
+    height: 25px;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.progress-bar
+{
+    background-color: #7d2ae8;
+}

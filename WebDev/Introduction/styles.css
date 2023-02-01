@@ -1,0 +1,156 @@
+body
+{
+    background: #0f1128;
+    height: 100vh;
+}
+
+.logo
+{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logo:hover
+{
+    color: #fff;
+}
+
+header
+{
+    padding: 6px 15px;
+    background: #003;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+}
+
+header ul li
+{
+    padding-left: 7px;
+}
+
+header ul li a
+{
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 6px 15px;
+}
+
+header ul li a:hover
+{
+    color: #fff;
+    background-color: #448;
+    transition: background-color 0.2s ease-in-out;
+}
+
+section
+{
+    background: linear-gradient(#01296b, #760387);
+    background-attachment: fixed;
+    height: 90%;
+    position: relative;
+}
+
+.main-header
+{
+    padding-bottom: 50px;
+}
+
+h1
+{
+    text-align: center;
+    padding-top: 50px;
+}
+
+.main-blockquote
+{
+    text-align: center;
+    background: #fff;
+    opacity: 0.5;
+    border-radius: 20px;
+    padding: 10px;
+    width: 700px;
+    margin: auto;
+}
+
+.dream-blockquote
+{
+    font-size: 25px;
+    background: #fff;
+    opacity: 0.5;
+    border-radius: 20px;
+    padding: 10px;
+    width: 700px;
+    margin-left: 100px;
+}
+
+.right-pic
+{
+    bottom: 0;
+    position: absolute;
+    right:0;
+    bottom: 0;
+    width: 40%;
+}
+
+.mainIMG
+{
+    padding-bottom: 20px;
+    max-width: 30%;
+}
+
+.purple-container
+{
+    background: #1d0422;
+    padding: 100px;
+}
+
+.bottom-container
+{
+    background: #202237;
+    padding: 60px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+}
+
+.button-up
+{
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+.button-up:hover
+{
+    color: #3295f0;
+    padding-bottom: 20px;
+    transition: color 0.5s, padding-bottom 0.1s ease-in-out;
+}
+
+.social-icons
+{
+    font-size: 30px;
+    padding-right: 10px;
+    color: #fff;
+}
+.social-icons:hover
+{
+    color: #3295f0;
+}
+
+div li
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 15px;
+    padding-bottom: 15px;
+    width: 70%;
+    margin: auto;
+}

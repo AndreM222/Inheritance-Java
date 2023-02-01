@@ -1,0 +1,65 @@
+/* Size for brand */
+body
+{
+    background-color: #2a2c38;
+}
+
+.fastbuy
+{
+    display: flex;
+    list-style-type: none;
+}
+
+.bt
+{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    font-size: 20px;
+}
+
+.table-dracula
+{
+    color: #fff;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-color: #fff;
+    color: #fff;
+    border-color: #373b3e;
+}
+
+.navbar-dracula
+{
+    background-color: #1f1f29;
+}
+.bg-dracula
+{
+    background-color: #1f1f29;
+}
+
+
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}

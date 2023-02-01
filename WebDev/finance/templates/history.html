@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    history
+{% endblock %}
+
+{% block main %}
+    <table class="table table-dracula">
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Name</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for transaction in transactions %}
+                {% if transaction["price"]|float >= 0 %}
+                    <tr style="background-color: #65b779" >
+                        <th scope="row">{{ transaction["symbol"] }}</th>
+                        <td>{{ transaction["name"] }}</td>
+                        <td>{{ transaction["shares"] }}</td>
+                        <td>{{ transaction["price"] }}</td>
+                        <td>{{ transaction["total"] }}</td>
+                    </tr>
+                {% else %}
+                    <tr style="background-color: #b94343" >
+                        <th scope="row">{{ transaction["symbol"] }}</th>
+                        <td>{{ transaction["name"] }}</td>
+                        <td>{{ transaction["shares"] }}</td>
+                        <td>{{ transaction["price"] }}</td>
+                        <td>{{ transaction["total"] }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
